@@ -4,6 +4,12 @@ const Create =()=>{
   const [Roles,setRoles]=useState("");
   const [Jobs,setJobs]=useState("");
   const [Skills,setSkills]=useState("");
+  const [MSalary,setMSalary]=useState("");
+  const [mSalary,setmSalary]=useState("");
+  const [Deadline,setDeadline]=useState("");
+  const [Employmenttype,setEmploymenttype]=useState("");
+  const [Description,setDescription]=useState("");
+  
   return (
    <div className="create">
     <h2>Posting Jobs</h2>
@@ -26,22 +32,52 @@ const Create =()=>{
        value ={Skills}
        onChange={(e)=>setSkills(e.target.value)}
        />
-      <label>Salary-Range</label>
+       <label>Min-Salary</label>
+       <input type="text" 
+       required
+       value ={mSalary}
+       onChange={(e)=>setmSalary(e.target.value)}
+       />
+       <label>Max-Salary</label>
+       <input type="text" 
+       required
+       value ={MSalary}
+       onChange={(e)=>setMSalary(e.target.value)}
+       />
+      <label>Job-Location</label>
       <select>
-        <option value="80k">60k-80k dollars</option>
-        <option value="100k">80k-100k dollars</option>
-        <option value="120k">100k-120k dollars</option>
-      </select>
-      <label>Experiance-Level</label>
-      <select>
-        <option value="Fresher">Fresher</option>
-        <option value="2+Years">2-Years</option>
-        <option value="4+Years">4+Years</option>
-      </select>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Banglore">Babglore</option>
+        <option value="Pune">Pune</option>
+        <option value="Noida">Noida</option>
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Indore">Indore</option>
+      </select><label>Employment-Type</label>
+       <input type="text" 
+       required
+       value ={Employmenttype}
+       onChange={(e)=>setEmploymenttype(e.target.value)}
+       />
+
+      <label>Deadline</label>
+       <input type="text" 
+       required
+       value ={Deadline}
+       onChange={(e)=>setDeadline(e.target.value)}
+       />
+       <label>Desription</label>
+       <textarea
+       required
+       value ={Description}
+      onChange={(e)=>setDescription(e.target.value)}>
+       </textarea>
        <button>Add Posts</button>
        <p>{Roles}</p>
        <p>{Jobs}</p>
        <p>{Skills}</p>
+       <p>{Employmenttype}</p>
+       <p>{Deadline}</p>
     </form>
    </div>
   );
