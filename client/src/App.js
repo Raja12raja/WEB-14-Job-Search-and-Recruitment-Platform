@@ -6,6 +6,8 @@ import Home from './components/Home';
 import Contact from './components/Contact';
 import About from './components/About';
 import Profile from './components/Profile';
+import Login from './components/Login';
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
       <Route exact path="/about" element={<About />} />
       <Route exact path="/contact" element={<Contact />} />
       <Route exact path="/profile" element={<Profile />} />
+      <Route exact path="/login" element={<Login />} />
       
       </Routes>
       </div>

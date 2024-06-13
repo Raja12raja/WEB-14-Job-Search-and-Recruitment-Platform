@@ -1,7 +1,10 @@
 import React, { useContext, useEffect , useState } from 'react'
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   
     return (
       <div class="bg-gray-900">
@@ -77,12 +80,13 @@ export const Navbar = () => {
             <ul class="flex items-center space-x-8 lg:flex">
               <li>
                 <a
-                  href="/"
+                  href="/login"
                   class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                   aria-label="Sign up"
                   title="Sign up"
                 >
-                  Sign up
+               
+                 Sign In / Up
                 </a>
               </li>
             </ul>
