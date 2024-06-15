@@ -9,7 +9,7 @@
 }
 .create h2{
     font-size:20px;
-    color:#f1356d;
+    color:#282c34;
     margin-bottom: 30px;
 }
 
@@ -21,8 +21,11 @@
    box-sizing: border-box;
    display: block;
 }
+body {
+    background-color: lightblue;
+  }
 .create button {
-    background-color: #f1356d;
+    background-color: #282c34;
     color: #fff;
     border: 0;
     padding: 8px;
