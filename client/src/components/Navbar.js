@@ -68,12 +68,12 @@ export const Navbar = () => {
               </li>
               <li>
                 <a
-                  href="/about"
-                  aria-label="About us"
-                  title="About us"
+                  href="/PostJob"
+                  aria-label="PostJob"
+                  title="PostJob"
                   class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                 >
-                  About
+                 PostJob
                 </a>
               </li>
             </ul>
@@ -193,12 +193,12 @@ export const Navbar = () => {
                         </li>
                         <li>
                           <a
-                            href="/about"
-                            aria-label="About us"
-                            title="About us"
+                            href="/PostJob"
+                            aria-label="PostJob"
+                            title="PostJob"
                             class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                           >
-                            About us
+                            PostJob
                           </a>
                         </li>
                         <li>
