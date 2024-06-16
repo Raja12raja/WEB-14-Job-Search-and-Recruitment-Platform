@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
 import './About.css';
+import { Navigate, useNavigate } from 'react-router-dom';
+
 
 const Create = () => {
-  const { user, isAuthenticated } = useAuth0(); // Move the hook to the top level
+  const { user, isAuthenticated } = useAuth0(); 
+  const navigate = useNavigate();
 
   const [Role, setRole] = useState("");
   const [CompanyName, setCompanyName] = useState("");
@@ -24,7 +27,7 @@ const Create = () => {
       setEmail(user.email);
     }
 
-    const jobPost = {
+    const blog = {
       CompanyName,
       Role,
       Skills,
@@ -36,18 +39,17 @@ const Create = () => {
       Employmenttype,
       email
     };
+    console.log(blog)
 
-    console.log(jobPost);
+    
 
     // Make a POST request to the backend
-    try {
-      const response = await Axios.post('http://localhost:3001/postJob', jobPost);
-      alert('Job Posted Successfully');
-      console.log(response.data);
-    } catch (error) {
-      console.error('There was an error!', error);
-      alert('Error, try later');
-    }
+    Axios.post("http://localhost:5000/postJob",{blog})
+    .then(()=>{
+      alert("Job posted successfully");
+      navigate('/');
+    })
+    .catch(()=>{alert("error posting")})
   };
 
   return (
