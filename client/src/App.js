@@ -7,6 +7,7 @@ import Contact from './components/Contact';
 import PostJob from './components/PostJob';
 import Profile from './components/Profile';
 import Login from './components/Login';
+import Error404 from './components/Error404';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Route exact path="/contact" element={<Contact />} />
       <Route exact path="/profile" element={<Profile />} />
       <Route exact path="/login" element={<Login />} />
+      <Route exact path="*" element={<Error404/>}/>
       
       </Routes>
       </div>
