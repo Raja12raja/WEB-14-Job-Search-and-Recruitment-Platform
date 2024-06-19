@@ -21,9 +21,7 @@
    box-sizing: border-box;
    display: block;
 }
-body {
-    background-color: lightblue;
-  }
+
 .create button {
     background-color: #282c34;
     color: #fff;
