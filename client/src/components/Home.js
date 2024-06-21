@@ -1,10 +1,14 @@
 import React from "react";
+import './Home.css'
+import JobcardsTab from './JobcardsTab.jsx'
 
 const Home  = ()=>{
     return (
-        <div >
-         This is Home Page 
-        </div>
+      <>
+      <div className="search">search bar </div>
+      <JobcardsTab />
+           
+      </>
       );
 }
 
