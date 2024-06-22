@@ -5,12 +5,14 @@ const About  = ()=>{
 
   const {user , loginWithPopup , loginWithRedirect , isAuthenticated , logout ,isLoading} = useAuth0();
 
+
   console.log(user)
   if (isLoading) {
     return <div>Loading ...</div>;
+    
   }
     return (
-
+      
       <div >
         {isAuthenticated ?(<button
         onClick={(e)=>{
@@ -23,7 +25,7 @@ const About  = ()=>{
        }} > Login </button>) }
        
         </div>
-
+        
         
       
        

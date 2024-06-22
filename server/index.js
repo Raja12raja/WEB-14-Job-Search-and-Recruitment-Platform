@@ -52,6 +52,15 @@ app.post("/postJob", async (req, res) => {
   }
 });
 
+
+//getting data
+app.get('/GetJobs',async(req,res)=>{
+  const data= await JobModel.find({});
+  res.json({success:true,msg: "server is getting",data1:data});
+  
+})
+
+
 app.listen(5000, () => {
   console.log("SERVER STARTED ");
 });
