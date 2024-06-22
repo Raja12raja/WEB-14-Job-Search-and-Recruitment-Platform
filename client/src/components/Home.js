@@ -1,9 +1,9 @@
 import React from "react";
-
+import Cards from "./Cards";
 const Home  = ()=>{
     return (
-        <div >
-         This is Home Page
+        <div className=" bg-orange-100" >
+<Cards/>
         </div>
       );
 }
