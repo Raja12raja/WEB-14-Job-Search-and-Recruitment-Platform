@@ -9,15 +9,15 @@ const Create = () => {
   const { user, isAuthenticated } = useAuth0(); 
   const navigate = useNavigate();
 
-  const [Role, setRole] = useState("");
+  const [Role, setRole] = useState("Web Dev");
   const [CompanyName, setCompanyName] = useState("");
   const [Skills, setSkills] = useState("");
   const [MSalary, setMSalary] = useState("");
   const [mSalary, setmSalary] = useState("");
   const [Deadline, setDeadline] = useState("");
-  const [Employmenttype, setEmploymenttype] = useState("");
+  const [Employmenttype, setEmploymenttype] = useState("Full time");
   const [Description, setDescription] = useState("");
-  const [Location, setLocation] = useState("");
+  const [Location, setLocation] = useState("Bengaluru");
   const [email, setEmail] = useState("not loggedin");
 
   const HandleSubmit = async (e) => {
@@ -66,11 +66,11 @@ const Create = () => {
 
        <label>Job Title</label>
         <select
-        defaultValue={"Web dev"}
+     
           required
           onChange={(e) => setRole(e.target.value)}
         >
-          <option value="Web Dev">Web Dev</option>
+          <option value="Web Dev" >Web Dev</option>
           <option value="App Dev">App Dev</option>
           <option value="CyberSec">CyberSec</option>
           <option value="DataScience">Data Science</option>
@@ -78,7 +78,7 @@ const Create = () => {
         </select>
         <label>Employment type</label>
         <select
-         defaultValue={"Full Time"}
+       
           required
           onChange={(e) => setEmploymenttype(e.target.value)}
         >
@@ -114,7 +114,7 @@ const Create = () => {
         />
         <label>Job-Location</label>
         <select
-         defaultValue={"Bengaluru"}
+         
           required
           onChange={(e) => setLocation(e.target.value)}
         >
