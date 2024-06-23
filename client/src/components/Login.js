@@ -7,19 +7,7 @@ const About = () => {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      setUserEmail(user.email);
-      setUserName(user.name);
-      Axios.post("http://localhost:5000/loginInfo", { userName: user.name, userEmail: user.email })
-        .then(() => {
-          console.log("userinfo stored");
-        })
-        .catch(() => {
-          console.log("userinfo not stored");
-        });
-    }
-  }, [isAuthenticated, user]);
+
 
   if (isLoading) {
     return <div>Loading ...</div>;

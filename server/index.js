@@ -78,6 +78,12 @@ app.get('/GetJobs',async(req,res)=>{
   
 })
 
+//getting users
+app.get('/GetUsers' , async (req,res)=>{
+  const data = await UserModel.find({});
+  res.json({success:true,msg: "server is getting",data2:data})
+} )
+
 
 app.listen(5000, () => {
   console.log("SERVER STARTED ");
