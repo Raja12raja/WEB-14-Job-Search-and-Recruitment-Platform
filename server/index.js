@@ -52,6 +52,24 @@ app.post("/postJob", async (req, res) => {
   }
 });
 
+app.post("/loginInfo", async(req,res)=>{
+  try{
+    const userName = req.body.userName;
+    const userEmail = req.body.userEmail;
+
+    const userinfo = new UserModel({
+     userName,
+     userEmail,
+    });
+
+    await userinfo.save();
+    res.send("info inserted")
+  }
+  catch (err) {
+    console.error('Error inserting info:', err);
+    res.status(500).send("Error inserting info");
+  }
+});
 
 //getting data
 app.get('/GetJobs',async(req,res)=>{
