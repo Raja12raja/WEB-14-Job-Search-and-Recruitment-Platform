@@ -19,6 +19,7 @@ const Create = () => {
   const [Description, setDescription] = useState("");
   const [Location, setLocation] = useState("Bengaluru");
   const [email, setEmail] = useState("not loggedin");
+  const [Logo, setLogo] = useState("https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg");
 
   const HandleSubmit = async (e) => {
     e.preventDefault();
@@ -37,7 +38,8 @@ const Create = () => {
       Description,
       Deadline,
       Employmenttype,
-      email
+      email,
+      Logo
     };
     console.log(blog)
 
@@ -132,12 +134,20 @@ const Create = () => {
           value={Deadline}
           onChange={(e) => setDeadline(e.target.value)}
         />
+          <label>URL of Company Logo</label>
+        <input
+          type="text"
+         
+         
+          onChange={(e) => setLogo(e.target.value)}
+        />
         <label>Job Description</label>
         <textarea
           required
           value={Description}
           onChange={(e) => setDescription(e.target.value)}
         />
+       
         <button>Add Post</button>
       </form>
     </div>
