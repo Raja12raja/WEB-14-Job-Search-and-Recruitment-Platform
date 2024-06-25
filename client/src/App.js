@@ -3,7 +3,7 @@ import './App.css';
 import { Route, Routes, Router,useLocation} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import Contact from './components/Contact';
+import Dashboard from './components/Dashboard';
 import PostJob from './components/PostJob';
 import Profile from './components/Profile';
 import Login from './components/Login';
@@ -16,7 +16,7 @@ function App() {
   const location = useLocation();
   const hideNavbarPaths = ['*'];
   const showNavbar=()=>{
-if(location.pathname==="/" ||location.pathname==="/PostJob"||location.pathname==="/contact"||location.pathname==="/profile"||
+if(location.pathname==="/" ||location.pathname==="/PostJob"||location.pathname==="/Dashboard"||location.pathname==="/profile"||
   location.pathname==="/login")
   {
     return <Navbar/>;
@@ -28,7 +28,7 @@ if(location.pathname==="/" ||location.pathname==="/PostJob"||location.pathname==
       <Routes>
       <Route exact path="/" element={<Home />} />
       <Route exact path="/PostJob" element={<PostJob />} />
-      <Route exact path="/contact" element={<Contact />} />
+      <Route exact path="/Dashboard" element={<Dashboard />} />
       <Route exact path="/profile" element={<Profile />} />
       <Route exact path="/login" element={<Login />} />
       <Route exact path="/Apply" element={<FillJob />} />
