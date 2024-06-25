@@ -41,7 +41,7 @@ const Cards = () => {
                     <a href="#" className="w-full block h-full">
                         <div className="flex items-start">
                             <div className="w-12 h-12 object-cover ml-4 mt-4">
-                                <img className="object-cover object-center w-full h-full rounded-lg" src={google} alt="Company Logo" />
+                                <img className="object-cover object-center w-full h-full rounded-lg" src={job.Logo} alt="Company Logo" />
                             </div>
                             <div className="ml-4">
                                 <div className="text-indigo-500 text-xl font-medium">{job.Role}</div>

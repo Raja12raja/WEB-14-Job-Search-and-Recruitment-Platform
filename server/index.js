@@ -28,7 +28,8 @@ app.post("/postJob", async (req, res) => {
       Description,
       Deadline,
       Employmenttype,
-      email
+      email,
+      Logo
     } = req.body.blog;
 
     const newJob = new JobModel({
@@ -41,7 +42,8 @@ app.post("/postJob", async (req, res) => {
       Description,
       Deadline,
       Employmenttype,
-      email
+      email,
+      Logo
     });
 
     await newJob.save();

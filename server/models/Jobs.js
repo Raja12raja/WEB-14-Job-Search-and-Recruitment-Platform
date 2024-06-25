@@ -12,6 +12,7 @@ const jobSchema = new mongoose.Schema({
   Deadline: Date,
   Employmenttype: String,
   email: String,
+  Logo: String,
 });
 
 const JobModel = mongoose.model('Job', jobSchema);
