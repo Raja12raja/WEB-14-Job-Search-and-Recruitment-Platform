@@ -20,18 +20,13 @@ console.log(user)
     return (
       isAuthenticated && (
         <div className=" ">
-          {/* <div className="flex justify-center">
-          <img src={user.picture} alt={user.name} className=" "/>
-          </div>
-          */}
-          {/* <h2>{user.name}</h2>
-          <p>{user.email}</p> */}
+         
           {console.log(user)}
        
           <div className="px-2 py-4 mt-16 flex flex-col justify-center items-center text-center">
-          {/* <img src={user.picture} alt={user.name} className=" "/> */}
+
           <img
-        className="inline-flex object-cover border-4 border-black-600 rounded-full shadow-[5px_5px_0_0_rgba(0,0,0,1)] shadow-indigo-600/100 bg-indigo-50 text-indigo-600 h-24 w-24 !h-48 !w-48"
+        className="inline-flex object-cover border-4 border-black-600 rounded-full shadow-[5px_5px_0_0_rgba(0,0,0,1)] shadow-black-600/500 bg-indigo-50 text-indigo-600 h-24 w-24 !h-48 !w-48"
         src={user.picture} alt={user.name}
       />
       <h1 className="text-2xl text-gray-500 font-bold mt-2"> {user.name}</h1>
@@ -42,7 +37,7 @@ console.log(user)
         <li className="mx-2">
           <a href="#" target="_blank" aria-label="GitHub" rel="noopener noreferrer">
             <svg
-              className="h-6 text-indigo-700 hover:text-indigo-300"
+              className="h-6 text-black-700 hover:text-indigo-300"
               fill="currentColor"
               role="img"
               viewBox="0 0 24 24"
@@ -56,7 +51,7 @@ console.log(user)
         <li className="mx-2">
           <a href="#" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
             <svg
-              className="h-6 text-indigo-700 hover:text-indigo-300"
+              className="h-6 text-black-700 hover:text-indigo-300"
               fill="currentColor"
               role="img"
               viewBox="0 0 24 24"
@@ -70,7 +65,7 @@ console.log(user)
         <li className="mx-2">
           <a href="#" target="_blank" aria-label="Twitter" rel="noopener noreferrer">
             <svg
-              className="h-6 text-indigo-700 hover:text-indigo-300"
+              className="h-6 text-black-700 hover:text-indigo-300"
               fill="currentColor"
               role="img"
               viewBox="0 0 24 24"
@@ -81,24 +76,11 @@ console.log(user)
             </svg>
           </a>
         </li>
-        <li className="mx-2">
-          <a href="#" target="_blank" aria-label="Unsplash" rel="noopener noreferrer">
-            <svg
-              className="h-6 text-indigo-700 hover:text-indigo-300"
-              fill="currentColor"
-              role="img"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>Unsplash</title>
-              <path d="M7.5 6.75V0h9v6.75h-9zm9 3.75H24V24H0V10.5h7.5v6.75h9V10.5z" />
-            </svg>
-          </a>
-        </li>
+
         <li className="mx-2">
           <a href="#" target="_blank" aria-label="Email" rel="noopener noreferrer">
             <svg
-              className="h-6 text-indigo-700 hover:text-indigo-300"
+              className="h-6 text-black-700 hover:text-indigo-300"
               fill="currentColor"
               role="img"
               viewBox="0 0 24 24"
