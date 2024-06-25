@@ -8,6 +8,8 @@ import PostJob from './components/PostJob';
 import Profile from './components/Profile';
 import Login from './components/Login';
 import Error404 from './components/Error404';
+import FillJob from './components/FillJob';
+import Cards from './components/Cards';
 
 
 function App() {
@@ -29,6 +31,7 @@ if(location.pathname==="/" ||location.pathname==="/PostJob"||location.pathname==
       <Route exact path="/contact" element={<Contact />} />
       <Route exact path="/profile" element={<Profile />} />
       <Route exact path="/login" element={<Login />} />
+      <Route exact path="/Apply" element={<FillJob />} />
       <Route exact path="*" element={<Error404/>}/>
       
       </Routes>

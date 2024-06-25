@@ -2,22 +2,22 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
 import './About.css';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const Create = () => {
   const { user, isAuthenticated } = useAuth0(); 
   const navigate = useNavigate();
 
-  const [Role, setRole] = useState("");
+  const [Role, setRole] = useState("Web Dev");
   const [CompanyName, setCompanyName] = useState("");
   const [Skills, setSkills] = useState("");
   const [MSalary, setMSalary] = useState("");
   const [mSalary, setmSalary] = useState("");
   const [Deadline, setDeadline] = useState("");
-  const [Employmenttype, setEmploymenttype] = useState("");
+  const [Employmenttype, setEmploymenttype] = useState("Full time");
   const [Description, setDescription] = useState("");
-  const [Location, setLocation] = useState("");
+  const [Location, setLocation] = useState("Bengaluru");
   const [email, setEmail] = useState("not loggedin");
 
   const HandleSubmit = async (e) => {
@@ -53,34 +53,44 @@ const Create = () => {
   };
 
   return (
-    <div className="create"> {/* Use className instead of class */}
+    <div className="create "> {/* Use className instead of class */}
       <h2>Posting Jobs</h2>
       <form onSubmit={HandleSubmit}>
-        <label>Job Title</label>
-        <input
-          type="text"
-          required
-          value={Role}
-          onChange={(e) => setRole(e.target.value)}
-        />
-        <label>Company Name</label>
+      <label>Company Name</label>
         <input
           type="text"
           required
           value={CompanyName}
           onChange={(e) => setCompanyName(e.target.value)}
         />
-        <label>Employment-Type</label>
+
+       <label>Job Title</label>
         <select
+     
           required
-          onChange={(e) => setEmploymenttype(e.target.value)}
+          onChange={(e) => setRole(e.target.value)}
         >
-          <option value="Web Dev">Web Dev</option>
+          <option value="Web Dev" >Web Dev</option>
           <option value="App Dev">App Dev</option>
           <option value="CyberSec">CyberSec</option>
           <option value="DataScience">Data Science</option>
           <option value="HR">HR</option>
         </select>
+        <label>Employment type</label>
+        <select
+       
+          required
+          onChange={(e) => setEmploymenttype(e.target.value)}
+        >
+          <option value="Web Dev">Full time</option>
+          <option value="App Dev">Part time</option>
+          <option value="App Dev">Intern</option>
+     
+        </select>
+
+     
+       
+       
         <label>Required Skills</label>
         <input
           type="text"
@@ -104,6 +114,7 @@ const Create = () => {
         />
         <label>Job-Location</label>
         <select
+         
           required
           onChange={(e) => setLocation(e.target.value)}
         >
