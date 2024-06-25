@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import './About.css';
 
 const Create = () => {
-  const { user, isAuthenticated } = useAuth0(); 
+  const { user, isAuthenticated ,isLoading} = useAuth0(); 
   const navigate = useNavigate();
 
   const [Role, setRole] = useState("Web Dev");
@@ -22,10 +22,8 @@ const Create = () => {
 
   const HandleSubmit = async (e) => {
     e.preventDefault();
-
-    if (isAuthenticated && user) {
-      setEmail(user.email);
-    }
+  
+    
 
     const blog = {
       CompanyName,
@@ -37,7 +35,7 @@ const Create = () => {
       Description,
       Deadline,
       Employmenttype,
-      email,
+      email: user.email,
       Logo
     };
 
@@ -49,6 +47,16 @@ const Create = () => {
       })
       .catch(() => { alert("error posting") });
   };
+
+  
+ 
+    // If user is not authenticated
+    if (!isAuthenticated) {
+      return <div>Please login first ...</div>;
+    }
+ 
+
+
 
   return (
     <div className="create-container">
