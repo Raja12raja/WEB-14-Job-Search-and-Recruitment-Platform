@@ -25,6 +25,23 @@ const Dashboard = () => {
   if (isLoading) {
     return <div>Loading ...</div>;
   }
+  if (!isAuthenticated) {
+    return <div>Please Login First ...</div>;
+  }
+
+  // Delete job by ID
+  const deleteJob = async (id) => {
+    if (window.confirm("Are you sure you want to delete this job?")) {
+      try {
+        await Axios.delete(`http://localhost:5000/DeleteJob/${id}`);
+        alert("Successfully deleted");
+        setAllJobs(allJobs.filter(job => job._id !== id));
+      } catch (err) {
+        console.log(err);
+        alert("Error deleting, try again later");
+      }
+    }
+  }
 
   // Filter jobs based on user's email
   const filteredJobs = allJobs.filter(job => job.email === user.email);
@@ -57,8 +74,11 @@ const Dashboard = () => {
               </td>
               <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
                 <span className="inline-block w-1/3 md:hidden font-bold">Actions</span>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Edit</button>
-                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">Delete</button>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded"
+                >Edit</button>
+                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded"
+                onClick={() => deleteJob(row._id)}
+                >Delete</button>
               </td>
             </tr>
           ))}

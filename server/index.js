@@ -86,6 +86,20 @@ app.get('/GetUsers' , async (req,res)=>{
   res.json({success:true,msg: "server is getting",data2:data})
 } )
 
+//deleting job  
+app.delete('/DeleteJob/:id',async (req,res)=>{
+
+  try {
+    const {id} = req.params;
+    await JobModel.findByIdAndDelete(id);
+    res.send(" Job deleted ");
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error")
+  }
+})
+
+
 
 app.listen(5000, () => {
   console.log("SERVER STARTED ");
