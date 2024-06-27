@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Cards from "./Cards";
 import { useAuth0 } from "@auth0/auth0-react";
 import Axios from 'axios';
+import Banner from "../components/Banner";
 
 const Home = () => {
-  const { user, loginWithPopup, loginWithRedirect, isAuthenticated, logout, isLoading } = useAuth0();
+  const { user, isAuthenticated, isLoading } = useAuth0();
   const [allUsers, setAllUsers] = useState([]);
   const [isThere, setIsThere] = useState(false);
 
@@ -27,7 +28,6 @@ const Home = () => {
       const checkUserExists = () => {
         const userExists = allUsers.some(bkndUser => bkndUser.userEmail === user.email);
         setIsThere(userExists);
-
         if (!userExists) {
           Axios.post("http://localhost:5000/loginInfo", { userName: user.name, userEmail: user.email })
             .then(() => {
@@ -38,13 +38,13 @@ const Home = () => {
             });
         }
       };
-
       checkUserExists();
     }
   }, [isAuthenticated, user, allUsers]);
 
   return (
     <div className="bg-orange-100">
+      <Banner />
       <Cards />
     </div>
   );

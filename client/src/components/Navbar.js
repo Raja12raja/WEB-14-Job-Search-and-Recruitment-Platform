@@ -55,12 +55,12 @@ export const Navbar = () => {
             </li>
             <li>
               <a
-                href="/contact"
+                href="/Dashboard"
                 aria-label="Contact"
                 title="Contact"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
               >
-                Contact
+                Dashboard
               </a>
             </li>
             <li>
@@ -179,12 +179,12 @@ export const Navbar = () => {
                       </li>
                       <li>
                         <a
-                          href="/contact"
+                          href="/Dashboard"
                           aria-label="Contact"
                           title="Contact"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          Contact
+                         Dashboard
                         </a>
                       </li>
                       <li>
