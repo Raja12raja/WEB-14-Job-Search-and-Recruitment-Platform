@@ -90,25 +90,25 @@
   }
   
   .create-container {
-    max-width: 700px;
-    margin: 50px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
   .title {
+    font-size: 2rem;
+    font-weight: 700;
     text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
+    margin-bottom: 1.5rem;
   }
   
   .form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 1rem;
   }
   
   .form-group {
@@ -117,70 +117,41 @@
   }
   
   .form-group label {
-    margin-bottom: 5px;
-
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
   }
   
   .form-group input,
   .form-group select,
   .form-group textarea {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
   }
   
   .form-group input:focus,
   .form-group select:focus,
   .form-group textarea:focus {
-    outline: none;
     border-color: #007bff;
-  }
-  
-  .form-group textarea {
-    resize: vertical;
-    height: 100px;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+    outline: none;
   }
   
   .submit-button {
-    padding: 15px;
-    background: #007bff;
+    padding: 0.75rem 1.5rem;
+    background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease;
   }
   
   .submit-button:hover {
-    background: #0056b3;
+    background-color: #0056b3;
   }
   
-  @media (max-width: 768px) {
-    .create-container {
-      padding: 15px;
-    }
-  
-    .title {
-      font-size: 20px;
-    }
-  
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      font-size: 14px;
-    }
-  
-    .submit-button {
-      font-size: 14px;
-    }
-  }
-  .create-container {
-    margin-top: 50px;
-  }
-  
-  .submit-button {
-    margin-top: 20px;
-  }
