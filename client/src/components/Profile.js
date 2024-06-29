@@ -26,7 +26,7 @@ function Profile() {
                 className="border-4 border-gray-300 rounded-full shadow-lg h-48 w-48"
                 src={user.picture} alt={user.name}
               />
-              <h1 className="text-3xl text-indigo-600 font-bold mt-4">{user.name}</h1>
+              <h1 className="text-3xl text-blue-600 font-bold mt-4">{user.name}</h1>
               <h2 className="text-xl text-gray-700 mt-2">{user.email}</h2>
               <ul className="flex flex-row mt-4 space-x-4">
                 <li>
@@ -60,7 +60,7 @@ function Profile() {
                 <li>
                   <a href="#" target="_blank" aria-label="Twitter" rel="noopener noreferrer">
                     <svg
-                      className="h-8 text-gray-700 hover:text-indigo-600 transition-transform transform hover:scale-110"
+                      className="h-8 text-gray-700 hover:text-blue-600 transition-transform transform hover:scale-110"
                       fill="currentColor"
                       role="img"
                       viewBox="0 0 24 24"

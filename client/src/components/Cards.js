@@ -72,19 +72,19 @@ const Cards = ({ query }) => {
                                     <label>Deadline :</label> <span>{formatDate(job.Deadline)}</span>
                                 </div>
                                 <div className="w-full text-gray-800 text-sm font-medium mb-2 mt-2 min-h-14">
-                                    <label className="text-indigo-700">Description :</label> <ReadMore text={job.Description} maxLength={50} />
+                                    <label className="text-blue-500">Description :</label> <ReadMore text={job.Description} maxLength={50} />
                                 </div>
                             </div>
                             <div className="flex justify-between items-center py-3 border-b-2 text-xs text-white font-medium">
-                                <a href="/Apply" className="px-4 py-2 rounded-full bg-indigo-600 hover:bg-indigo-700 flex m-auto">
+                                <a href="/Apply" className="px-4 py-2 rounded-full bg-blue-500 hover:bg-blue-500 flex m-auto">
                                     Apply now
                                 </a>
                             </div>
                             <div className="flex items-center mt-4">
-                                <div className="px-3 bg-indigo-600 rounded-full text-white font-medium text-center">
+                                <div className="px-3 bg-blue-500 rounded-full text-white font-medium text-center">
                                     {job.Employmenttype}
                                 </div>
-                                <div className="px-3 bg-indigo-600 rounded-full text-white font-medium text-center ml-auto flex items-center">
+                                <div className="px-3 bg-blue-500 rounded-full text-white font-medium text-center ml-auto flex items-center">
                                     <img className="h-4 w-4 mt-1 mr-1" src={location} alt="Location Icon" />
                                     {job.Location}
                                 </div>

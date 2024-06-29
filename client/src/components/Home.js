@@ -78,7 +78,7 @@ const Home = () => {
                         />
                         <FiSearch className='absolute inset-y-0 left-0 mt-2.5 ml-3 text-gray-400' />
                     </div>
-                    <button type='submit' className='bg-blue-600 py-2 px-8 text-white md:rounded-r-none rounded ml-2'>Search</button>
+                    <button type='submit' className='bg-blue-500 py-2 px-8 text-white md:rounded-r-none rounded ml-2'>Search</button>
                 </div>
             </form>
         </div>

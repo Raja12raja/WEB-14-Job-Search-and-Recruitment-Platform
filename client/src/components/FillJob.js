@@ -4,9 +4,7 @@ const FillJob = () => {
   return (
     <div
       className="bg-orange-100 min-h-screen bg-cover bg-center"
-      style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1543269865-cbf427effbad')",
-      }}
+      
     >
       {/* Navbar */}
       <nav className="bg-gray-900 py-4">
