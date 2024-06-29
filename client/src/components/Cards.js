@@ -3,7 +3,7 @@ import Axios from 'axios';
 import location from './images/location.png';
 import ReadMore from "./ReadMore";
 
-const Cards = () => {
+const Cards = ({ query }) => {
     const [allJobs, setAllJobs] = useState([]);
 
     // Function to format deadline date
@@ -21,6 +21,7 @@ const Cards = () => {
             const response = await Axios.get("http://localhost:5000/GetJobs");
             console.log(response.data.data1);
             setAllJobs(response.data.data1);
+        
         } catch (error) {
             console.log("error", error)
         }
@@ -29,11 +30,16 @@ const Cards = () => {
     // Fetch jobs data on component mountfbo
     useEffect(() => {
         getJobs();
+
     }, []);
+
+    const filteredCards = allJobs.filter(job => 
+        job.Role.toLowerCase().includes(query.toLowerCase())
+      );
 
     // Function to render cards
     const renderCards = () => {
-        return allJobs.map((job, index) => (
+        return filteredCards.map((job, index) => (
             <div key={index} className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 p-2 lg:p-3 mt-10">
                 <div className="w-80 overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl rounded-lg cursor-pointer from-white bg-orange-200 mx-auto ">
                     <a href="#" className="w-full block h-full">

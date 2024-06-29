@@ -7,20 +7,23 @@ import { FiSearch } from 'react-icons/fi';
 
 const Home = () => {
   
-  const [query, setQuery] = useState("");
 
-    const handleInputChange = (event) => {
-        setQuery(event.target.value);
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // Implement search functionality here
-    };
 
   const { user, isAuthenticated } = useAuth0();
   const [allUsers, setAllUsers] = useState([]);
   const [isThere, setIsThere] = useState(false);
+
+
+  const [query, setQuery] = useState("");
+  const handleInputChange = (event) => {
+      setQuery(event.target.value);
+  };
+
+  
+  const handleSubmit = (event) => {
+      event.preventDefault();
+      
+  };
 
   const getUsers = async () => {
     try {
@@ -80,7 +83,7 @@ const Home = () => {
             </form>
         </div>
 
-      <Cards />
+        <Cards query={query} />
       
     </div>
   );

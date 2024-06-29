@@ -16,10 +16,15 @@ const Create = () => {
   const [Employmenttype, setEmploymenttype] = useState("Full time");
   const [Description, setDescription] = useState("");
   const [Location, setLocation] = useState("Bengaluru");
-  const [Logo, setLogo] = useState("https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg");
+  const [Logo, setLogo] = useState("");
+  const micro = "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg";
 
   const HandleSubmit = async (e) => {
     e.preventDefault();
+
+    if(Logo===" "){
+      setLogo("https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg");
+    }
 
     const blog = {
       CompanyName,
@@ -48,7 +53,7 @@ const Create = () => {
   }
 
   return (
-    <div className="max-w-lg mx-auto p-8 bg-white rounded-lg shadow-md">
+    <div className="max-w-lg mx-auto p-8 bg-white rounded-lg shadow-md mt-10 mb-10">
       <h1 className="text-2xl font-bold text-center mb-6">Post a Job</h1>
       <form onSubmit={HandleSubmit} className="flex flex-col gap-4">
         <div className="flex flex-col">
