@@ -23,7 +23,7 @@ function Profile() {
           <div className="w-full md:w-1/3 px-4 mb-8">
             <div className="flex flex-col items-center text-center bg-gradient-to-r from-indigo-100 to-white p-8 rounded-lg shadow-lg">
               <img
-                className="border-4 border-indigo-600 rounded-full shadow-lg h-48 w-48"
+                className="border-4 border-gray-300 rounded-full shadow-lg h-48 w-48"
                 src={user.picture} alt={user.name}
               />
               <h1 className="text-3xl text-indigo-600 font-bold mt-4">{user.name}</h1>
