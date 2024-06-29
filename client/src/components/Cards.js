@@ -26,7 +26,7 @@ const Cards = () => {
         }
     }
 
-    // Fetch jobs data on component mount
+    // Fetch jobs data on component mountfbo
     useEffect(() => {
         getJobs();
     }, []);
@@ -35,14 +35,14 @@ const Cards = () => {
     const renderCards = () => {
         return allJobs.map((job, index) => (
             <div key={index} className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 p-2 lg:p-3 mt-10">
-                <div className="w-80 overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl rounded-lg cursor-pointer bg-gradient-to-r from-white to-indigo-100 mx-auto border-l-4 border-r-4 border-indigo-500">
+                <div className="w-80 overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl rounded-lg cursor-pointer from-white bg-orange-200 mx-auto ">
                     <a href="#" className="w-full block h-full">
                         <div className="flex items-start p-4">
                             <div className="w-16 h-16 object-cover">
                                 <img className="object-cover object-center w-full h-full rounded-lg" src={job.Logo} alt="Company Logo" />
                             </div>
                             <div className="ml-4">
-                                <div className="text-indigo-600 text-xl font-semibold">{job.Role}</div>
+                                <div className=" text-xl font-semibold">{job.Role}</div>
                                 <div className="text-gray-700 font-medium">@ {job.CompanyName}</div>
                             </div>
                         </div>
@@ -86,11 +86,11 @@ const Cards = () => {
         <div className="flex flex-wrap justify-center mx-4">
             {renderCards()}
             <div className="absolute bottom-0 right-0 mb-4 mr-4 z-10">
-                <div>
+                {/* <div>
                     <a title="Follow me on twitter" href="https://www.twitter.com/asad_codes" target="_blank" className="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
                         <img className="object-cover object-center w-full h-full rounded-full" src="https://www.imore.com/sites/imore.com/files/styles/large/public/field/image/2019/12/twitter-logo.jpg" alt="Twitter Logo" />
                     </a>
-                </div>
+                </div> */}
             </div>
         </div>
     );
