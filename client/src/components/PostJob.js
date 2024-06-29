@@ -51,7 +51,8 @@ const Create = () => {
   if (!isAuthenticated) {
     return <div>Please login first ...</div>;
   }
-
+ 
+  
   return (
     <div className="max-w-lg mx-auto p-8 bg-white rounded-lg shadow-md mt-10 mb-10">
       <h1 className="text-2xl font-bold text-center mb-6">Post a Job</h1>
@@ -74,11 +75,14 @@ const Create = () => {
             onChange={(e) => setRole(e.target.value)}
             className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
           >
-            <option value="Web Dev">Web Dev</option>
-            <option value="App Dev">App Dev</option>
-            <option value="CyberSec">CyberSec</option>
+            <option value="Web Dev">Web Developer</option>
+            <option value="App Dev">App Developer</option>
+            <option value="CyberSec">Cybersecurity Analyst</option>
             <option value="DataScience">Data Science</option>
-            <option value="HR">HR</option>
+            <option value="HR">Systems Analyst</option>
+            <option value="HR">Network Administrator</option>
+            <option value="HR">Cloud Architect</option>
+            <option value="HR">DevOps Engineer</option>
           </select>
         </div>
         <div className="flex flex-col">

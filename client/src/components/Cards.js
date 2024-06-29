@@ -37,6 +37,14 @@ const Cards = ({ query }) => {
         job.Role.toLowerCase().includes(query.toLowerCase())
       );
 
+      if(filteredCards.length===0)
+        {
+            return (
+                <div className="  text-2xl">
+                    <h1>No Jobs Found ....</h1>
+                </div>
+            )
+        }
     // Function to render cards
     const renderCards = () => {
         return filteredCards.map((job, index) => (
