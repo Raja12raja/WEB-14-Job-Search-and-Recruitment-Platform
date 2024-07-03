@@ -17,7 +17,7 @@ function App() {
   const hideNavbarPaths = ['*'];
   const showNavbar=()=>{
 if(location.pathname==="/" ||location.pathname==="/PostJob"||location.pathname==="/Dashboard"||location.pathname==="/profile"||
-  location.pathname==="/login")
+  location.pathname==="/login"|| location.pathname==="/Apply" )
   {
     return <Navbar/>;
   }

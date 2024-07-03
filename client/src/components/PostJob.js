@@ -16,7 +16,7 @@ const Create = () => {
   const [Employmenttype, setEmploymenttype] = useState("Full time");
   const [Description, setDescription] = useState("");
   const [Location, setLocation] = useState("Bengaluru");
-  const [Logo, setLogo] = useState("");
+  const [Logo, setLogo] = useState("https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg");
   const micro = "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg";
 
   const HandleSubmit = async (e) => {
@@ -75,14 +75,14 @@ const Create = () => {
             onChange={(e) => setRole(e.target.value)}
             className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
           >
-            <option value="Web Dev">Web Developer</option>
-            <option value="App Dev">App Developer</option>
-            <option value="CyberSec">Cybersecurity Analyst</option>
+            <option value="Web Developer">Web Developer</option>
+            <option value="Web Developer">Web Developer</option>
+            <option value="Cybersecurity Analyst">Cybersecurity Analyst</option>
             <option value="DataScience">Data Science</option>
-            <option value="HR">Systems Analyst</option>
-            <option value="HR">Network Administrator</option>
-            <option value="HR">Cloud Architect</option>
-            <option value="HR">DevOps Engineer</option>
+            <option value="Systems Analyst">Systems Analyst</option>
+            <option value="Network Administrator">Network Administrator</option>
+            <option value="Cloud Architect">Cloud Architect</option>
+            <option value="DevOps Engineer">DevOps Engineer</option>
           </select>
         </div>
         <div className="flex flex-col">
