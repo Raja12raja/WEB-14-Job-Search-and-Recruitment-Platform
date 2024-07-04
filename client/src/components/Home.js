@@ -59,7 +59,7 @@ const Home = () => {
   }, [isAuthenticated, user, allUsers]);
 
   return (
-    <div className="bg-orange-100">
+    <div className="bg-[#EEEEEE]">
       
       <div className='max-w-screen-2xl container mx-auto xl:px-24 px-4 md:py-20 py-14'>
             <h1 className='text-5xl font-bold text-primary mb-3 text-center'>Find your <span className='text-blue-400'>Jobs</span> here</h1>
@@ -78,7 +78,7 @@ const Home = () => {
                         />
                         <FiSearch className='absolute inset-y-0 left-0 mt-2.5 ml-3 text-gray-400' />
                     </div>
-                    <button type='submit' className='bg-blue-500 py-2 px-8 text-white md:rounded-r-none rounded ml-2'>Search</button>
+                    <button type='submit' className='bg-[#393E46] py-2 px-8 text-white md:rounded-r-none rounded ml-2'>Search</button>
                 </div>
             </form>
         </div>
