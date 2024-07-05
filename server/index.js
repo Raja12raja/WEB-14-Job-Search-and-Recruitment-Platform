@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const app = express();
 const UserModel = require('./models/Users'); 
 const JobModel = require('./models/Jobs');
+const AppliedModel = require('./models/Applied')
 
 app.use(express.json());
 app.use(cors());
@@ -73,7 +74,7 @@ app.post("/loginInfo", async(req,res)=>{
   }
 });
 
-//getting data
+//getting data all jobs
 app.get('/GetJobs',async(req,res)=>{
   const data= await JobModel.find({});
   res.json({success:true,msg: "server is getting",data1:data});
@@ -99,6 +100,57 @@ app.delete('/DeleteJob/:id',async (req,res)=>{
   }
 })
 
+
+
+
+//Adding applied Job
+app.post('/applyJOB', async (req, res) => {
+  try {
+    const {
+      UserName,
+      UserEmail,
+      ContactEmail,
+      AdminEmail,
+      JobId,
+      UserGithub,
+      Status
+    } = req.body;
+
+    const Jobinfo = new AppliedModel({
+      UserName,
+      UserEmail,
+      ContactEmail,
+      AdminEmail,
+      JobId,
+      UserGithub,
+      Status
+    });
+
+    await Jobinfo.save();
+    res.send("Inserted");
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error");
+  }
+});
+
+
+//getting a perticular Job
+app.get('/GetJobById/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const job = await JobModel.findById(id);
+   
+    if (!job) {
+        return res.status(404).send({ message: 'Job not found' });
+    }
+    res.send(job);
+    
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error");
+  }
+});
 
 
 app.listen(5000, () => {

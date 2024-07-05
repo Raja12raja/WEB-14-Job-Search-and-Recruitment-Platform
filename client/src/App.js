@@ -1,6 +1,6 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react';
 import './App.css';
-import { Route, Routes, Router,useLocation} from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
@@ -11,31 +11,27 @@ import Error404 from './components/Error404';
 import FillJob from './components/FillJob';
 import Cards from './components/Cards';
 
-
 function App() {
   const location = useLocation();
-  const hideNavbarPaths = ['*'];
-  const showNavbar=()=>{
-if(location.pathname==="/" ||location.pathname==="/PostJob"||location.pathname==="/Dashboard"||location.pathname==="/profile"||
-  location.pathname==="/login"|| location.pathname==="/Apply" )
-  {
-    return <Navbar/>;
-  }
-  }
+
+  const showNavbar = () => {
+    const pathsWithNavbar = ['/', '/PostJob', '/Dashboard', '/profile', '/login', '/Apply/:id'];
+    return pathsWithNavbar.some(path => location.pathname.match(new RegExp(`^${path.replace(':id', '[^/]+')}$`))) && <Navbar />;
+  };
+
   return (
     <div className="App">
-    {showNavbar()}
+      {showNavbar()}
       <Routes>
-      <Route exact path="/" element={<Home />} />
-      <Route exact path="/PostJob" element={<PostJob />} />
-      <Route exact path="/Dashboard" element={<Dashboard />} />
-      <Route exact path="/profile" element={<Profile />} />
-      <Route exact path="/login" element={<Login />} />
-      <Route exact path="/Apply" element={<FillJob />} />
-      <Route exact path="*" element={<Error404/>}/>
-      
+        <Route path="/" element={<Home />} />
+        <Route path="/PostJob" element={<PostJob />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/Apply/:id" element={<FillJob />} />
+        <Route path="*" element={<Error404 />} />
       </Routes>
-      </div>
+    </div>
   );
 }
 
