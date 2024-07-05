@@ -27,24 +27,23 @@ const Cards = ({ query }) => {
         }
     }
 
-    // Fetch jobs data on component mountfbo
+    // Fetch jobs data on component mount
     useEffect(() => {
         getJobs();
-
     }, []);
 
     const filteredCards = allJobs.filter(job => 
         job.Role.toLowerCase().includes(query.toLowerCase())
-      );
+    );
 
-      if(filteredCards.length===0)
-        {
-            return (
-                <div className="  text-2xl">
-                    <h1>No Jobs Found ....</h1>
-                </div>
-            )
-        }
+    if(filteredCards.length === 0) {
+        return (
+            <div className="text-2xl">
+                <h1>No Jobs Found ....</h1>
+            </div>
+        );
+    }
+
     // Function to render cards
     const renderCards = () => {
         return filteredCards.map((job, index) => (
@@ -56,8 +55,8 @@ const Cards = ({ query }) => {
                                 <img className="object-cover object-center w-full h-full rounded-lg" src={job.Logo} alt="Company Logo" />
                             </div>
                             <div className="ml-4">
-                                <div className=" text-xl font-semibold">{job.Role}</div>
-                                <div className="text-gray-700 font-medium">@ {job.CompanyName}</div>
+                                <div className="text-xl font-semibold text-[#393E46]">{job.Role}</div>
+                                <div className="text-[#393E46] font-medium">@ {job.CompanyName}</div>
                             </div>
                         </div>
                         <div className="bg-white w-full p-4 rounded-b-lg">
@@ -81,10 +80,10 @@ const Cards = ({ query }) => {
                                 </a>
                             </div>
                             <div className="flex items-center mt-4">
-                                <div className="px-3 bg-blue-500 rounded-full text-white font-medium text-center">
+                                <div className="px-3 bg-[#3C5B6F] rounded-full text-white font-medium text-center">
                                     {job.Employmenttype}
                                 </div>
-                                <div className="px-3 bg-blue-500 rounded-full text-white font-medium text-center ml-auto flex items-center">
+                                <div className="px-3 bg-[#3C5B6F] rounded-full text-white font-medium text-center ml-auto flex items-center">
                                     <img className="h-4 w-4 mt-1 mr-1" src={location} alt="Location Icon" />
                                     {job.Location}
                                 </div>
