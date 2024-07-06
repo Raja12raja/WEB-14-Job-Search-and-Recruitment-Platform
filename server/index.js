@@ -134,7 +134,10 @@ app.post('/applyJOB', async (req, res) => {
       AdminEmail,
       JobId,
       UserGithub,
-      Status
+      Status,
+      CompanyName,
+      Title,
+      Deadline
     } = req.body;
 
     const Jobinfo = new AppliedModel({
@@ -144,7 +147,10 @@ app.post('/applyJOB', async (req, res) => {
       AdminEmail,
       JobId,
       UserGithub,
-      Status
+      Status,
+      CompanyName,
+      Title,
+      Deadline
     });
 
     await Jobinfo.save();
