@@ -48,9 +48,9 @@ const Cards = ({ query }) => {
     const renderCards = () => {
         return filteredCards.map((job, index) => (
             <div key={index} className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 p-2 lg:p-3 mt-10">
-                <div className="w-80 overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl rounded-lg cursor-pointer bg-[#EEEEEE] mx-auto">
-                    <a href="#" className="w-full block h-full">
-                        <div className="flex items-start p-4 bg-gradient-to-r from-[#00ADB5] to-[#EEEEEE]">
+                <div className="w-80 overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl rounded-lg cursor-pointer from-white bg-orange-200 mx-auto ">
+                    <a  className="w-full block h-full">
+                        <div className="flex items-start p-4">
                             <div className="w-16 h-16 object-cover">
                                 <img className="object-cover object-center w-full h-full rounded-lg" src={job.Logo} alt="Company Logo" />
                             </div>
@@ -75,7 +75,7 @@ const Cards = ({ query }) => {
                                 </div>
                             </div>
                             <div className="flex justify-between items-center py-3 border-b-2 text-xs text-white font-medium">
-                                <a href="/Apply" className="px-4 py-2 rounded-full bg-[#3C5B6F] hover:bg-[#393E46] flex m-auto">
+                                <a href={`/Apply/${job._id}`}  className="px-4 py-2 rounded-full bg-blue-500 hover:bg-blue-500 flex m-auto">
                                     Apply now
                                 </a>
                             </div>
