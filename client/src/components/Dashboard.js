@@ -49,7 +49,7 @@ const Dashboard = () => {
   return (
     <div>
       <div>
-        <div className="font-bold text-2xl mt-7">Your Dashboard</div>
+        <div className="font-bold text-2xl mt-7">Admin Dashboard</div>
       </div>
       <table className="min-w-full border-collapse block md:table mt-7">
         <thead className="block md:table-header-group">

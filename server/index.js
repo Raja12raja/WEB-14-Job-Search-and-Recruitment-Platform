@@ -103,6 +103,27 @@ app.delete('/DeleteJob/:id',async (req,res)=>{
 
 
 
+
+
+
+//getting a perticular Job
+app.get('/GetJobById/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const job = await JobModel.findById(id);
+   
+    if (!job) {
+        return res.status(404).send({ message: 'Job not found' });
+    }
+    res.send(job);
+    
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error");
+  }
+});
+
+
 //Adding applied Job
 app.post('/applyJOB', async (req, res) => {
   try {
@@ -135,22 +156,12 @@ app.post('/applyJOB', async (req, res) => {
 });
 
 
-//getting a perticular Job
-app.get('/GetJobById/:id', async (req, res) => {
-  try {
-    const { id } = req.params;
-    const job = await JobModel.findById(id);
-   
-    if (!job) {
-        return res.status(404).send({ message: 'Job not found' });
-    }
-    res.send(job);
-    
-  } catch (error) {
-    console.log(error);
-    res.status(500).send("Error");
-  }
-});
+// getting applied Jobs
+app.get('/GetAppliedJobs',async(req,res)=>{
+  const data= await AppliedModel.find({});
+  res.json({success:true,msg: "server is getting",data3:data});
+  
+})
 
 
 app.listen(5000, () => {

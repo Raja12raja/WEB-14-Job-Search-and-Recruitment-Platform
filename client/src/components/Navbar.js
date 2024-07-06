@@ -78,7 +78,7 @@ export const Navbar = () => {
             <li>
               <a
                 href="/login"
-                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#222831] transition duration-200 rounded shadow-md bg-[#EEEEEE] hover:bg-[#222831] focus:shadow-outline focus:outline-none"
+                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#222831] transition duration-200 rounded shadow-md bg-[#EEEEEE] hover:bg-[#222831] hover:text-white focus:shadow-outline focus:outline-none"
                 aria-label="Sign up"
                 title="Sign up"
               >
