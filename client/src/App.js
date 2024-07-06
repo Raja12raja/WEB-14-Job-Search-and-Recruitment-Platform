@@ -9,28 +9,30 @@ import Profile from './components/Profile';
 import Login from './components/Login';
 import Error404 from './components/Error404';
 import FillJob from './components/FillJob';
-import Dashboard2 from './components/Dashboard2';
 
 function App() {
   const location = useLocation();
 
   const showNavbar = () => {
-    const pathsWithNavbar = ['/', '/PostJob', '/Dashboard', '/profile', '/login', '/Apply/:id','/Dashboard2'];
-    return pathsWithNavbar.some(path => location.pathname.match(new RegExp(`^${path.replace(':id', '[^/]+')}$`))) && <Navbar />;
+    const hideNavbarPaths = ['*'];
+    const currentPath = location.pathname;
+
+    if (!hideNavbarPaths.includes(currentPath)) {
+      return <Navbar />;
+    }
   };
 
   return (
     <div className="App">
       {showNavbar()}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/PostJob" element={<PostJob />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/Dashboard2" element={<Dashboard2 />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/Apply/:id" element={<FillJob />} />
-        <Route path="*" element={<Error404 />} />
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/PostJob" element={<PostJob />} />
+        <Route exact path="/Dashboard" element={<Dashboard />} />
+        <Route exact path="/profile" element={<Profile />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/Apply" element={<FillJob />} />
+        <Route exact path="*" element={<Error404 />} />
       </Routes>
     </div>
   );

@@ -3,10 +3,9 @@ import Axios from 'axios';
 import location from './images/location.png';
 import ReadMore from "./ReadMore";
 
-const Cards = ({ query }) => {
+const Cards = ({ query, selectedLocation, selectedRole, minSalary }) => {
     const [allJobs, setAllJobs] = useState([]);
 
-    // Function to format deadline date
     const formatDate = (deadline) => {
         const date = new Date(deadline);
         const day = date.getDate().toString().padStart(2, '0');
@@ -15,28 +14,28 @@ const Cards = ({ query }) => {
         return `${day}/${month}/${year}`;
     };
 
-    // Function to fetch jobs data
     const getJobs = async () => {
         try {
             const response = await Axios.get("http://localhost:5000/GetJobs");
-            console.log(response.data.data1);
             setAllJobs(response.data.data1);
-        
         } catch (error) {
-            console.log("error", error)
+            console.log("error", error);
         }
-    }
+    };
 
-    // Fetch jobs data on component mount
     useEffect(() => {
         getJobs();
     }, []);
 
-    const filteredCards = allJobs.filter(job => 
-        job.Role.toLowerCase().includes(query.toLowerCase())
-    );
+    const filteredItems = allJobs.filter(job => {
+        const matchesQuery = job.Role.toLowerCase().includes(query.toLowerCase());
+        const matchesLocation = selectedLocation ? job.Location.toLowerCase() === selectedLocation : true;
+        const matchesRole = selectedRole ? job.Role.toLowerCase().includes(selectedRole.toLowerCase()) : true;
+        const matchesSalary = minSalary ? job.mSalary >= minSalary : true;
+        return matchesQuery && matchesLocation && matchesRole && matchesSalary;
+    });
 
-    if(filteredCards.length === 0) {
+    if (filteredItems.length === 0) {
         return (
             <div className="text-2xl">
                 <h1>No Jobs Found ....</h1>
@@ -44,13 +43,12 @@ const Cards = ({ query }) => {
         );
     }
 
-    // Function to render cards
     const renderCards = () => {
-        return filteredCards.map((job, index) => (
+        return filteredItems.map((job, index) => (
             <div key={index} className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 p-2 lg:p-3 mt-10">
-                <div className="w-80 overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl rounded-lg cursor-pointer from-white bg-orange-200 mx-auto ">
-                    <a  className="w-full block h-full">
-                        <div className="flex items-start p-4">
+                <div className="w-80 overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl rounded-lg cursor-pointer bg-[#EEEEEE] mx-auto">
+                    <a href="#" className="w-full block h-full">
+                        <div className="flex items-start p-4 bg-gradient-to-r from-[#00ADB5] to-[#EEEEEE]">
                             <div className="w-16 h-16 object-cover">
                                 <img className="object-cover object-center w-full h-full rounded-lg" src={job.Logo} alt="Company Logo" />
                             </div>
@@ -75,15 +73,15 @@ const Cards = ({ query }) => {
                                 </div>
                             </div>
                             <div className="flex justify-between items-center py-3 border-b-2 text-xs text-white font-medium">
-                                <a href={`/Apply/${job._id}`}  className="px-4 py-2 rounded-full bg-blue-500 hover:bg-blue-500 flex m-auto">
+                                <a href="/Apply" className="px-4 py-2 rounded-full bg-[#3C5B6F] hover:bg-[#393E46] flex m-auto">
                                     Apply now
                                 </a>
                             </div>
                             <div className="flex items-center mt-4">
-                                <div className="px-3 bg-[#3C5B6F] rounded-full text-white font-medium text-center hover:bg-[#153448] transition duration-200">
+                                <div className="px-3 bg-[#3C5B6F] rounded-full text-white font-medium text-center">
                                     {job.Employmenttype}
                                 </div>
-                                <div className="px-3 bg-[#3C5B6F] rounded-full text-white font-medium text-center ml-auto flex items-center hover:bg-[#153448] transition duration-200">
+                                <div className="px-3 bg-[#3C5B6F] rounded-full text-white font-medium text-center ml-auto flex items-center">
                                     <img className="h-4 w-4 mt-1 mr-1" src={location} alt="Location Icon" />
                                     {job.Location}
                                 </div>
@@ -98,15 +96,8 @@ const Cards = ({ query }) => {
     return (
         <div className="flex flex-wrap justify-center mx-4">
             {renderCards()}
-            <div className="absolute bottom-0 right-0 mb-4 mr-4 z-10">
-                {/* <div>
-                    <a title="Follow me on twitter" href="https://www.twitter.com/asad_codes" target="_blank" className="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
-                        <img className="object-cover object-center w-full h-full rounded-full" src="https://www.imore.com/sites/imore.com/files/styles/large/public/field/image/2019/12/twitter-logo.jpg" alt="Twitter Logo" />
-                    </a>
-                </div> */}
-            </div>
         </div>
     );
-}
+};
 
 export default Cards;

@@ -76,9 +76,8 @@ const Create = () => {
             className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
           >
             <option value="Web Developer">Web Developer</option>
-            <option value="Web Developer">Web Developer</option>
             <option value="Cybersecurity Analyst">Cybersecurity Analyst</option>
-            <option value="DataScience">Data Science</option>
+            <option value="Data Science">Data Science</option>
             <option value="Systems Analyst">Systems Analyst</option>
             <option value="Network Administrator">Network Administrator</option>
             <option value="Cloud Architect">Cloud Architect</option>
@@ -174,7 +173,7 @@ const Create = () => {
         </div>
         <button
           type="submit"
-          className="text-white bg-[#3C5B6F] hover:bg-[#393E46] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mt-4"
+          className="mt-4 p-3 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 transition duration-200"
         >
           Add Post
         </button>
