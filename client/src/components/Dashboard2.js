@@ -58,7 +58,7 @@ const Dashboard2 = () => {
                         <th className="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Title</th>
                         <th className="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Company Name</th>
                         <th className="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">status</th>
-                        <th className="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Location</th>
+                       
                         <th className="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Deadline</th>
 
                     </tr>
@@ -83,10 +83,6 @@ const Dashboard2 = () => {
                                     </span>
                                 </td>
                         
-                            </td>
-                            <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
-                                <span className="inline-block w-1/3 md:hidden font-bold">location</span>
-                               Indore
                             </td>
                             <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
                                 <span className="inline-block w-1/3 md:hidden font-bold">location</span>

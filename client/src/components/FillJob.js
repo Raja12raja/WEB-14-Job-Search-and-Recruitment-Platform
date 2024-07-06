@@ -40,7 +40,9 @@ const HandleSubmit = async (e) => {
     Status:"Pending",
     JobId : jobId,
     AdminEmail : response.data.email,
-
+    Title:response.data.Role,
+    Deadline:response.data.Deadline,
+    CompanyName:response.data.CompanyName,
     
 
 
