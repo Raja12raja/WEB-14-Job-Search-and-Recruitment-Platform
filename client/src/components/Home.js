@@ -62,8 +62,8 @@ const Home = () => {
     <div className="bg-[#EEEEEE]">
       
       <div className='max-w-screen-2xl container mx-auto xl:px-24 px-4 md:py-20 py-14'>
-            <h1 className='text-5xl font-bold text-primary mb-3 text-center'>Find your <span className='text-blue-400'>Jobs</span> here</h1>
-            <p className='text-lg text-black/70 mb-8 text-center'>Thousands of jobs in the computer, engineering and technology sectors are waiting for you</p>
+            <h1 className='text-5xl font-bold text-primary mb-3 text-center'>Find your <span className='text-[#088395]'>Jobs</span> here</h1>
+            <p className='text-lg font-bold text-black-800 mb-8 text-center'>Thousands of jobs in the computer, engineering and technology sectors are waiting for you !</p>
             <form className="flex justify-center" onSubmit={handleSubmit}>
                 <div className='w-full md:w-1/2 flex items-center'>
                     <div className='relative bg-white rounded-lg shadow-sm ring-1 ring-gray-300 focus-within:ring-2 focus-within:ring-indigo-600 flex-1'>
@@ -78,7 +78,7 @@ const Home = () => {
                         />
                         <FiSearch className='absolute inset-y-0 left-0 mt-2.5 ml-3 text-gray-400' />
                     </div>
-                    <button type='submit' className='bg-[#393E46] py-2 px-8 text-white md:rounded-r-none rounded ml-2'>Search</button>
+                    <button type='submit' className='bg-[#393E46] py-2 px-8 text-white md:rounded-r-none rounded ml-2 hover:bg-[#153448] transition duration-200'>Search</button>
                 </div>
             </form>
         </div>

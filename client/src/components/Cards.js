@@ -80,10 +80,10 @@ const Cards = ({ query }) => {
                                 </a>
                             </div>
                             <div className="flex items-center mt-4">
-                                <div className="px-3 bg-[#3C5B6F] rounded-full text-white font-medium text-center">
+                                <div className="px-3 bg-[#3C5B6F] rounded-full text-white font-medium text-center hover:bg-[#153448] transition duration-200">
                                     {job.Employmenttype}
                                 </div>
-                                <div className="px-3 bg-[#3C5B6F] rounded-full text-white font-medium text-center ml-auto flex items-center">
+                                <div className="px-3 bg-[#3C5B6F] rounded-full text-white font-medium text-center ml-auto flex items-center hover:bg-[#153448] transition duration-200">
                                     <img className="h-4 w-4 mt-1 mr-1" src={location} alt="Location Icon" />
                                     {job.Location}
                                 </div>
