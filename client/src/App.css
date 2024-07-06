@@ -1,9 +1,12 @@
+/* App.css */
+
 .App {
   text-align: center;
 }
 
-body{
+body {
   background-color: #EEEEEE;
+  font-family: 'Arial', sans-serif;
 }
 
 .App-header {
@@ -19,4 +22,56 @@ body{
 
 .App-link {
   color: #61dafb;
+}
+
+/* App.css */
+
+/* Ensure each label container is styled correctly */
+.sidebar-label-container {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-label-container:hover {
+  background-color: #f0f0f0;
+}
+
+/* Remove any padding or margin from the input itself */
+.sidebar-label-container input {
+  margin: 0; /* Ensure no margin */
+  padding: 0; /* Ensure no padding */
+  display: none; /* Hide the actual input */
+}
+
+/* Style the custom checkmark */
+.sidebar-label-container .checkmark {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: #eee;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Ensure only one radio button is styled per label */
+.sidebar-label-container input:checked + .checkmark {
+  background-color: #00ADB5;
+}
+
+.sidebar-label-container .checkmark:after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+  position: relative;
+  top: 4px;
+  left: 4px;
 }
