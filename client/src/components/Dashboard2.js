@@ -4,14 +4,13 @@ import Axios from 'axios';
 
 const Dashboard2 = () => {
     const { user, isAuthenticated, isLoading } = useAuth0();
-    const [allJobs, setAllJobs] = useState([]);
+    const [allAppliedJobs, setAllAppliedJobs] = useState([]);
 
     // To get Jobs posted
-    const getJobs = async () => {
+    const getAppliedJobs = async () => {
         try {
-            const response = await Axios.get("http://localhost:5000/GetJobs");
-            console.log(response.data.data1);
-            setAllJobs(response.data.data1);
+            const response = await Axios.get("http://localhost:5000/GetAppliedJobs");
+            setAllAppliedJobs(response.data.data3);
         } catch (error) {
             console.log("error", error);
         }
@@ -19,7 +18,7 @@ const Dashboard2 = () => {
 
     // Fetch jobs data on component mount
     useEffect(() => {
-        getJobs();
+        getAppliedJobs();
     }, []);
 
     if (isLoading) {
@@ -29,22 +28,12 @@ const Dashboard2 = () => {
         return <div>Please Login First ...</div>;
     }
 
-    // Delete job by ID
-    const deleteJob = async (id) => {
-        if (window.confirm("Are you sure you want to delete this job?")) {
-            try {
-                await Axios.delete(`http://localhost:5000/DeleteJob/${id}`);
-                alert("Successfully deleted");
-                setAllJobs(allJobs.filter(job => job._id !== id));
-            } catch (err) {
-                console.log(err);
-                alert("Error deleting, try again later");
-            }
-        }
-    }
+
 
     // Filter jobs based on user's email
-    const filteredJobs = allJobs.filter(job => job.email === user.email);
+    const filteredJobs = allAppliedJobs.filter(job => job.UserEmail === user.email);
+    console.log(filteredJobs)
+    console.log(allAppliedJobs)
 
     return (
         <div>
@@ -70,7 +59,7 @@ const Dashboard2 = () => {
                                 <span className="inline-block w-1/3 md:hidden font-bold">NO.</span>{index + 1}
                             </td>
                             <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
-                                <span className="inline-block w-1/3 md:hidden font-bold">Title</span>{row.Role}
+                                <span className="inline-block w-1/3 md:hidden font-bold">Title</span>{row.Title}
                             </td>
                             <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
                                 <span className="inline-block w-1/3 md:hidden font-bold">Company Name</span>{row.CompanyName}
@@ -78,16 +67,17 @@ const Dashboard2 = () => {
                             <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
                                 <span className="inline-block w-1/3 md:hidden font-bold">Status</span>
                                 <td class="py-4 px-6 border-b border-gray-200 text-gray-900 text-sm">
-                                    <span class="inline-block px-3 py-1 font-semibold leading-tight rounded-full bg-green-300 ">
-                                        Accepted
+                                    <span className={`inline-block px-3 py-1 font-semibold rounded-full ${row.Status === 'Pending' ? 'bg-yellow-300' : row.Status === 'Accepted' ? 'bg-green-300' : row.Status === 'Declined' ? 'bg-red-300': ''
+                                        }`}>
+                                        {row.Status}
                                     </span>
+
                                 </td>
                         
                             </td>
-                            <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
-                                <span className="inline-block w-1/3 md:hidden font-bold">location</span>
-                               Deadline
-                            </td>
+                            <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">    
+    {new Date(row.Deadline).toLocaleDateString('en-GB').replace(/\//g, '/')}
+</td>
                         </tr>
                     ))}
                 </tbody>
