@@ -173,7 +173,7 @@ const Create = () => {
         </div>
         <button
           type="submit"
-          className="mt-4 p-3 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 transition duration-200"
+          className="mt-4 p-3 bg-[#3C5B6F] text-white font-semibold rounded hover:bg-[#393E46] transition duration-200"
         >
           Add Post
         </button>
