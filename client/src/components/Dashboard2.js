@@ -6,7 +6,7 @@ const Dashboard2 = () => {
     const { user, isAuthenticated, isLoading } = useAuth0();
     const [allAppliedJobs, setAllAppliedJobs] = useState([]);
 
-    // To get Jobs posted
+    // To get Jobs Applied
     const getAppliedJobs = async () => {
         try {
             const response = await Axios.get("http://localhost:5000/GetAppliedJobs");
