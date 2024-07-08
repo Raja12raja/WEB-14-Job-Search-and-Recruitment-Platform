@@ -73,7 +73,7 @@ const Cards = ({ query, selectedLocation, selectedRole, minSalary }) => {
                                 </div>
                             </div>
                             <div className="flex justify-between items-center py-3 border-b-2 text-xs text-white font-medium">
-                                <a href="/Apply" className="px-4 py-2 rounded-full bg-[#3C5B6F] hover:bg-[#393E46] flex m-auto">
+                                <a href={`/Apply/${job._id}`} className="px-4 py-2 rounded-full bg-[#3C5B6F] hover:bg-[#393E46] flex m-auto">
                                     Apply now
                                 </a>
                             </div>

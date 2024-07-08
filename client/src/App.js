@@ -9,6 +9,8 @@ import Profile from './components/Profile';
 import Login from './components/Login';
 import Error404 from './components/Error404';
 import FillJob from './components/FillJob';
+import Dashboard2 from './components/Dashboard2';
+
 
 function App() {
   const location = useLocation();
@@ -29,8 +31,10 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/PostJob" element={<PostJob />} />
         <Route exact path="/Dashboard" element={<Dashboard />} />
+        <Route path="/Dashboard2" element={<Dashboard2 />} />``
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/login" element={<Login />} />
+        <Route path="/Apply/:id" element={<FillJob />} />
         <Route exact path="/Apply" element={<FillJob />} />
         <Route exact path="*" element={<Error404 />} />
       </Routes>

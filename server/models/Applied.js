@@ -11,6 +11,9 @@ const AppliedSchema = new mongoose.Schema({
     UserCv:String,
     UserResume:String,
     Status:String,
+    Title:String,
+    CompanyName:String,
+    Deadline:Date,
 
 
 });
