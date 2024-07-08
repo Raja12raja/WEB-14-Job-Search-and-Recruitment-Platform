@@ -39,6 +39,7 @@ function App() {
         <Route exact path="/Manage/:id" element={<Manage />} />
         <Route exact path="*" element={<Error404 />} />
       </Routes>
+      <Footer1 />
     </div>
   );
 }
