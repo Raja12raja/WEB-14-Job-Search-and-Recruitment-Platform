@@ -57,6 +57,7 @@ const Dashboard = () => {
             <th className="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">NO.</th>
             <th className="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Title</th>
             <th className="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Company Name</th>
+            <th className="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Applications</th>
             <th className="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Actions</th>
           </tr>
         </thead>
@@ -73,10 +74,14 @@ const Dashboard = () => {
                 <span className="inline-block w-1/3 md:hidden font-bold">Company Name</span>{row.CompanyName}
               </td>
               <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+                <span className="inline-block w-1/3 md:hidden font-bold">Applications</span><a href={`/Manage/${row._id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded"
+                >Manage</a>
+              </td>
+              <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
                 <span className="inline-block w-1/3 md:hidden font-bold">Actions</span>
                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded"
                 >Edit</button>
-                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded"
+                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border mx-3 border-red-500 rounded"
                 onClick={() => deleteJob(row._id)}
                 >Delete</button>
               </td>
