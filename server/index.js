@@ -170,6 +170,19 @@ app.get('/GetAppliedJobs',async(req,res)=>{
 })
 
 
+// update a job application
+app.put('/editAppliedJob/:id', async (req, res) => {
+  try {
+    const {status} = req.body;
+    const updatedJob = await AppliedModel.findByIdAndUpdate(req.params.id, { Status: status }, { new: true });
+    res.json({ success: true, msg: 'Job updated successfully', updatedJob });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Error updating job');
+  }
+});
+
+
 app.listen(5000, () => {
   console.log("SERVER STARTED ");
 });
