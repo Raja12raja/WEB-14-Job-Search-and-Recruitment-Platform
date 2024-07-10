@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 
 const Dashboard = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [allJobs, setAllJobs] = useState([]);
+  const navigate = useNavigate();
 
-  // To get Jobs posted
   const getJobs = async () => {
     try {
       const response = await Axios.get("http://localhost:5000/GetJobs");
-      console.log(response.data.data1);
       setAllJobs(response.data.data1);
     } catch (error) {
       console.log("error", error);
     }
-  }
+  };
 
-  // Fetch jobs data on component mount
   useEffect(() => {
     getJobs();
   }, []);
@@ -29,7 +28,6 @@ const Dashboard = () => {
     return <div>Please Login First ...</div>;
   }
 
-  // Delete job by ID
   const deleteJob = async (id) => {
     if (window.confirm("Are you sure you want to delete this job?")) {
       try {
@@ -41,9 +39,12 @@ const Dashboard = () => {
         alert("Error deleting, try again later");
       }
     }
-  }
+  };
 
-  // Filter jobs based on user's email
+  const handleEdit = (id) => {
+    navigate(`/edit/${id}`);
+  };
+
   const filteredJobs = allJobs.filter(job => job.email === user.email);
 
   return (
@@ -74,12 +75,12 @@ const Dashboard = () => {
                 <span className="inline-block w-1/3 md:hidden font-bold">Company Name</span>{row.CompanyName}
               </td>
               <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
-                <span className="inline-block w-1/3 md:hidden font-bold">Applications</span><a href={`/Manage/${row._id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded"
-                >Manage</a>
+                <span className="inline-block w-1/3 md:hidden font-bold">Applications</span><a href={`/Manage/${row._id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Manage</a>
               </td>
               <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
                 <span className="inline-block w-1/3 md:hidden font-bold">Actions</span>
                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded"
+                onClick={() => handleEdit(row._id)}
                 >Edit</button>
                 <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border mx-3 border-red-500 rounded"
                 onClick={() => deleteJob(row._id)}
