@@ -10,6 +10,8 @@ import Login from './components/Login';
 import Error404 from './components/Error404';
 import FillJob from './components/FillJob';
 import Dashboard2 from './components/Dashboard2';
+import Manage from './components/Manage';
+import Footer1 from './components/Footer';
 
 
 function App() {
@@ -35,9 +37,10 @@ function App() {
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/login" element={<Login />} />
         <Route path="/Apply/:id" element={<FillJob />} />
-        <Route exact path="/Apply" element={<FillJob />} />
+        <Route exact path="/Manage/:id" element={<Manage />} />
         <Route exact path="*" element={<Error404 />} />
       </Routes>
+      {/* <Footer1 /> */}
     </div>
   );
 }
