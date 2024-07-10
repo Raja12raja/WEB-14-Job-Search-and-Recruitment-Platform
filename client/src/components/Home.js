@@ -14,23 +14,23 @@ const Home = () => {
   const [minSalary, setMinSalary] = useState("");
 
   const handleInputChange = (event) => {
-      setQuery(event.target.value);
+    setQuery(event.target.value);
   };
 
   const handleLocationChange = (location) => {
-      setSelectedLocation(location);
+    setSelectedLocation(location);
   };
 
   const handleRoleChange = (role) => {
-      setSelectedRole(role);
+    setSelectedRole(role);
   };
 
   const handleMinSalaryChange = (salary) => {
-      setMinSalary(salary);
+    setMinSalary(salary);
   };
 
   const handleSubmit = (event) => {
-      event.preventDefault();
+    event.preventDefault();
   };
 
   const getUsers = async () => {
@@ -67,7 +67,7 @@ const Home = () => {
   return (
     <div className="bg-[#EEEEEE]">
       <div className='max-w-screen-2xl container mx-auto xl:px-24 px-4 md:py-20 py-14'>
-        <h1 className='text-5xl font-bold text-primary mb-3 text-center'>Find your <span className="text-[#1b8d93]">Jobs</span> here</h1>
+        <h1 className='text-5xl font-bold text-primary mb-3 text-center'>Find your <span className='text-[#088395]'>Jobs</span> here</h1>
         <p className='text-lg text-black/70 mb-8 text-center'>Thousands of jobs in the computer, engineering and technology sectors are waiting for you</p>
         <form className="flex justify-center" onSubmit={handleSubmit}>
           <div className='w-full md:w-1/2 flex items-center'>
@@ -88,7 +88,7 @@ const Home = () => {
         </form>
       </div>
       <div className='md:grid grid-cols-5 gap-8 lg:px-10 px-4 py-12'>
-        <div className='bg-white p-2 rounded'>
+        <div className='bg-white p-2 rounded shadow-lg shadow-[#393E46]'>
           <Sidebar 
             onLocationChange={handleLocationChange} 
             onRoleChange={handleRoleChange}

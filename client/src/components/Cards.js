@@ -78,10 +78,10 @@ const Cards = ({ query, selectedLocation, selectedRole, minSalary }) => {
                                 </a>
                             </div>
                             <div className="flex items-center mt-4">
-                                <div className="px-3 bg-[#3C5B6F] rounded-full text-white font-medium text-center">
+                                <div className="px-3 bg-[#DDDDDD] rounded-full text-black font-medium text-center">
                                     {job.Employmenttype}
                                 </div>
-                                <div className="px-3 bg-[#3C5B6F] rounded-full text-white font-medium text-center ml-auto flex items-center">
+                                <div className="px-3 bg-[#DDDDDD] rounded-full text-BLACK font-medium text-center ml-auto flex items-center">
                                     <img className="h-4 w-4 mt-1 mr-1" src={location} alt="Location Icon" />
                                     {job.Location}
                                 </div>
