@@ -67,7 +67,7 @@ const Home = () => {
   return (
     <div className="bg-[#EEEEEE]">
       <div className='max-w-screen-2xl container mx-auto xl:px-24 px-4 md:py-20 py-14'>
-        <h1 className='text-5xl font-bold text-primary mb-3 text-center'>Find your <span className='text-blue-400'>Jobs</span> here</h1>
+        <h1 className='text-5xl font-bold text-primary mb-3 text-center'>Find your <span className='text-[#088395]'>Jobs</span> here</h1>
         <p className='text-lg text-black/70 mb-8 text-center'>Thousands of jobs in the computer, engineering and technology sectors are waiting for you</p>
         <form className="flex justify-center" onSubmit={handleSubmit}>
           <div className='w-full md:w-1/2 flex items-center'>
