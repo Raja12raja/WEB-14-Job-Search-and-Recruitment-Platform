@@ -46,7 +46,7 @@ export const Navbar = () => {
                 href="/"
                 aria-label="Home"
                 title="Home"
-                className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-teal-accent-400"
+                className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
               >
                 Home
               </a>
