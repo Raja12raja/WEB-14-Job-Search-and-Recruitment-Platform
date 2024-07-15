@@ -68,32 +68,39 @@ const MDashboard = () => {
         );
     }
 
+  
     return (
         <div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-32 mt-4 w-full ">
-                {PendingJobs.map((row, index) => (
-                    <div className="flex items-center relative p-4 w-full bg-white rounded-lg overflow-hidden shadow hover:shadow-md" key={index}>
-                        <div className="w-12 h-12 rounded-full bg-gray-100"></div>
-                        <div className="ml-3">
-                            <p className="font-bold text-gray-800">{row.UserName}</p>
-                            <p className="text-sm text-gray-600">Email : <a>{row.ContactEmail}</a></p>
-                            <div className="flex flex-row">
-                                <p className="text-sm text-gray-600">Resume : <a>View</a></p>
-                                <button
-                                    className="absolute right-4 top-4 text-emerald-500 bg-transparent border border-solid border-emerald-500 hover:bg-emerald-500 hover:text-white active:bg-emerald-600 font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                    onClick={() => handleAcc(row._id)}
-                                >Accept</button>
-                            </div>
-                            <div className="flex flex-row">
-                                <p className="text-sm text-gray-600">CV : <a>View</a></p>
-                                <button
-                                    className="absolute right-4 bottom-3 text-red-500 bg-transparent border border-solid border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                    onClick={() => handleDec(row._id)}
-                                >Reject</button>
+                {PendingJobs.length === 0 ? (
+                    <div className="text-center mt-10 flex justify-center ">
+                        <div className="">No More Active Applications</div>
+                    </div>
+                ) : (
+                    PendingJobs.map((row, index) => (
+                        <div className="flex items-center relative p-4 w-full bg-white rounded-lg overflow-hidden shadow hover:shadow-md" key={index}>
+                            <div className="w-12 h-12 rounded-full bg-gray-100"></div>
+                            <div className="ml-3">
+                                <p className="font-bold text-gray-800">{row.UserName}</p>
+                                <p className="text-sm text-gray-600">Email : <a>{row.ContactEmail}</a></p>
+                                <div className="flex flex-row">
+                                    <p className="text-sm text-gray-600">Resume : <a>View</a></p>
+                                    <button
+                                        className="absolute right-4 top-4 text-emerald-500 bg-transparent border border-solid border-emerald-500 hover:bg-emerald-500 hover:text-white active:bg-emerald-600 font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                        onClick={() => handleAcc(row._id)}
+                                    >Accept</button>
+                                </div>
+                                <div className="flex flex-row">
+                                    <p className="text-sm text-gray-600">CV : <a>View</a></p>
+                                    <button
+                                        className="absolute right-4 bottom-3 text-red-500 bg-transparent border border-solid border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                        onClick={() => handleDec(row._id)}
+                                    >Reject</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))
+                )}
             </div>
 
             <div className="mt-10 bg-slate-100 text-xl">Accepted APPLICATIONS</div>
