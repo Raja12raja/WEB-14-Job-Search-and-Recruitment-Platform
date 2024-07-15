@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const app = express();
 const UserModel = require('./models/Users'); 
 const JobModel = require('./models/Jobs');
-const AppliedModel = require('./models/Applied')
+const AppliedModel = require('./models/Applied');
 
 app.use(express.json());
 app.use(cors());
@@ -66,7 +66,7 @@ app.post("/loginInfo", async(req,res)=>{
     });
 
     await userinfo.save();
-    res.send("info inserted")
+    res.send("info inserted");
   }
   catch (err) {
     console.error('Error inserting info:', err);
@@ -75,54 +75,44 @@ app.post("/loginInfo", async(req,res)=>{
 });
 
 //getting data all jobs
-app.get('/GetJobs',async(req,res)=>{
-  const data= await JobModel.find({});
-  res.json({success:true,msg: "server is getting",data1:data});
-  
-})
+app.get('/GetJobs', async (req, res) => {
+  const data = await JobModel.find({});
+  res.json({ success: true, msg: "server is getting", data1: data });
+});
 
 //getting users
-app.get('/GetUsers' , async (req,res)=>{
+app.get('/GetUsers', async (req, res) => {
   const data = await UserModel.find({});
-  res.json({success:true,msg: "server is getting",data2:data})
-} )
+  res.json({ success: true, msg: "server is getting", data2: data });
+});
 
 //deleting job  
-app.delete('/DeleteJob/:id',async (req,res)=>{
-
-  try {
-    const {id} = req.params;
-    await JobModel.findByIdAndDelete(id);
-    res.send(" Job deleted ");
-  } catch (error) {
-    console.log(error);
-    res.status(500).send("Error")
-  }
-})
-
-
-
-
-
-
-
-//getting a perticular Job
-app.get('/GetJobById/:id', async (req, res) => {
+app.delete('/DeleteJob/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const job = await JobModel.findById(id);
-   
-    if (!job) {
-        return res.status(404).send({ message: 'Job not found' });
-    }
-    res.send(job);
-    
+    await JobModel.findByIdAndDelete(id);
+    res.send("Job deleted");
   } catch (error) {
     console.log(error);
     res.status(500).send("Error");
   }
 });
 
+//getting a particular Job
+app.get('/GetJobById/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const job = await JobModel.findById(id);
+
+    if (!job) {
+      return res.status(404).send({ message: 'Job not found' });
+    }
+    res.send(job);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error");
+  }
+});
 
 //Adding applied Job
 app.post('/applyJOB', async (req, res) => {
@@ -161,19 +151,16 @@ app.post('/applyJOB', async (req, res) => {
   }
 });
 
-
-// getting applied Jobs
-app.get('/GetAppliedJobs',async(req,res)=>{
-  const data= await AppliedModel.find({});
-  res.json({success:true,msg: "server is getting",data3:data});
-  
-})
-
+//getting applied Jobs
+app.get('/GetAppliedJobs', async (req, res) => {
+  const data = await AppliedModel.find({});
+  res.json({ success: true, msg: "server is getting", data3: data });
+});
 
 // update a job application
 app.put('/editAppliedJob/:id', async (req, res) => {
   try {
-    const {status} = req.body;
+    const { status } = req.body;
     const updatedJob = await AppliedModel.findByIdAndUpdate(req.params.id, { Status: status }, { new: true });
     res.json({ success: true, msg: 'Job updated successfully', updatedJob });
   } catch (error) {
@@ -182,6 +169,51 @@ app.put('/editAppliedJob/:id', async (req, res) => {
   }
 });
 
+// update a job
+app.put('/EditJob/:id', async (req, res) => {
+  try {
+    const {
+      CompanyName,
+      Role,
+      Skills,
+      mSalary,
+      MSalary,
+      Location,
+      Description,
+      Deadline,
+      Employmenttype,
+      email,
+      Logo
+    } = req.body;
+
+    const updatedJob = await JobModel.findByIdAndUpdate(
+      req.params.id,
+      {
+        CompanyName,
+        Role,
+        Skills,
+        mSalary,
+        MSalary,
+        Location,
+        Description,
+        Deadline,
+        Employmenttype,
+        email,
+        Logo
+      },
+      { new: true }
+    );
+
+    if (!updatedJob) {
+      return res.status(404).send({ message: 'Job not found' });
+    }
+
+    res.json({ success: true, msg: 'Job updated successfully', updatedJob });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Error updating job');
+  }
+});
 
 app.listen(5000, () => {
   console.log("SERVER STARTED ");

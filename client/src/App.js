@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Router, Route, Routes, useLocation} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
@@ -12,7 +12,7 @@ import FillJob from './components/FillJob';
 import Dashboard2 from './components/Dashboard2';
 import Manage from './components/Manage';
 import Footer1 from './components/Footer';
-
+import EditJob from './components/EditJob';
 
 function App() {
   const location = useLocation();
@@ -39,6 +39,7 @@ function App() {
         <Route path="/Apply/:id" element={<FillJob />} />
         <Route exact path="/Manage/:id" element={<Manage />} />
         <Route exact path="*" element={<Error404 />} />
+        <Route path="/edit/:id" element={<EditJob />} />
       </Routes>
       {/* <Footer1 /> */}
     </div>
