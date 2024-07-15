@@ -76,7 +76,7 @@ if (!isAuthenticated) {
       {/* Navbar */}
       <nav className="bg-[#EEEEEE] py-4">
         <div className="container mx-auto px-4">
-          <h1 className="text-black font-bold text-2xl">My Application Form</h1>
+          <h1 className="text-black font-bold text-2xl">Application Form</h1>
         </div>
       </nav>
 
