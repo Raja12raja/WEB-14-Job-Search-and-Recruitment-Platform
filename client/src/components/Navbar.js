@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
+import { useAuth0 } from "@auth0/auth0-react";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const userRole = localStorage.getItem('userRole');
+  const {
+    
+    isAuthenticated,
+    logout,
+    isLoading,
+  } = useAuth0();
 
   return (
     <div className="bg-[#00ADB5]">
@@ -48,31 +56,53 @@ export const Navbar = () => {
                 href="/profile"
                 aria-label="Profile"
                 title="Profile"
-                className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-teal-accent-400"
+                className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
               >
                 Profile
               </a>
             </li>
-            <li>
+
+            {userRole==='employer' ?(
+  <li>
+  <a
+    href="/Dashboard"
+    aria-label="Contact"
+    title="Contact"
+    className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
+  >
+    Dashboard
+  </a>
+</li>
+
+            ):(
+              <li>
               <a
-                href="/Dashboard"
+                href="/Dashboard2"
                 aria-label="Contact"
                 title="Contact"
-                className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-teal-accent-400"
+                className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
               >
                 Dashboard
               </a>
             </li>
-            <li>
-              <a
-                href="/PostJob"
-                aria-label="PostJob"
-                title="PostJob"
-                className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-teal-accent-400"
-              >
-                PostJob
-              </a>
-            </li>
+            )}
+          
+           
+            {userRole==='employer'?(
+                 <li>
+                 <a
+                   href="/PostJob"
+                   aria-label="PostJob"
+                   title="PostJob"
+                   className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
+                 >
+                   PostJob
+                 </a>
+               </li>
+
+              
+            ):(<li></li>)}
+         
           </ul>
           <ul className="items-center hidden space-x-8 lg:flex">
             <li>
@@ -82,7 +112,10 @@ export const Navbar = () => {
                 aria-label="Sign up"
                 title="Sign up"
               >
-                Sign In / Up
+               {isAuthenticated?(         
+       <button>
+Logout
+</button>   ):(<p> Login</p>)} 
               </a>
             </li>
           </ul>
@@ -162,7 +195,7 @@ export const Navbar = () => {
                           href="/home"
                           aria-label="Home"
                           title="Home"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
                         >
                           Home
                         </a>
@@ -172,7 +205,7 @@ export const Navbar = () => {
                           href="/profile"
                           aria-label="Profile"
                           title="Profile"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
                         >
                           Profile
                         </a>
@@ -182,7 +215,7 @@ export const Navbar = () => {
                           href="/Dashboard"
                           aria-label="Contact"
                           title="Contact"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
                         >
                           Dashboard
                         </a>
@@ -192,7 +225,7 @@ export const Navbar = () => {
                           href="/PostJob"
                           aria-label="PostJob"
                           title="PostJob"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
                         >
                           PostJob
                         </a>
@@ -200,11 +233,11 @@ export const Navbar = () => {
                       <li>
                         <a
                           href="/login"
-                          className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-[#222831] transition duration-200 rounded shadow-md bg-[#393E46] hover:bg-[#222831] focus:shadow-outline focus:outline-none"
+                          className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-[#222831] transition duration-200 rounded shadow-md bg-[#393E46] hover:bg-[#222831] hover:text-white focus:shadow-outline focus:outline-none"
                           aria-label="Sign up"
                           title="Sign up"
                         >
-                          Sign In / Up
+                    {isAuthenticated?(<p> Logout</p>):(<p> Login</p>)} 
                         </a>
                       </li>
                     </ul>
