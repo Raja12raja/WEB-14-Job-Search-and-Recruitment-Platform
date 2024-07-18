@@ -4,79 +4,70 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 
-
-
-
-
 const FillJob = () => {
-const [UserName ,setUserName] = useState("");
-const [ContactEmail ,setContactEmail] = useState("");
-const [UserGithub ,setGitHub] = useState("");
+  const [UserName, setUserName] = useState("");
+  const [ContactEmail, setContactEmail] = useState("");
+  const [UserGithub, setGitHub] = useState("");
+  const [UserResume, setUserResume] = useState(null);
+  const [UserCv, setUserCv] = useState(null);
+  const [Status, setStatus] = useState("");
 
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  const navigate = useNavigate();
+  const { id: jobId } = useParams();
 
-const [AdminEmail ,setAdminEmail] = useState("");
-const [JobId ,setJobId] = useState("");
-const [Status ,setStatus] = useState("");
+  const HandleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Pending");
 
-const {user , isAuthenticated , isLoading} = useAuth0();
-const navigate = useNavigate()
-const { id: jobId } = useParams();
-// console.log(jobId)
+    const response = await Axios.get(`http://localhost:5000/GetJobById/${jobId}`);
 
+    const formData = new FormData();
+    formData.append("UserName", UserName);
+    formData.append("ContactEmail", ContactEmail);
+    formData.append("UserGithub", UserGithub);
+    formData.append("UserEmail", user.email);
+    formData.append("Status", "Pending");
+    formData.append("JobId", jobId);
+    formData.append("AdminEmail", response.data.email);
+    formData.append("Title", response.data.Role);
+    formData.append("Deadline", response.data.Deadline);
+    formData.append("CompanyName", response.data.CompanyName);
+    formData.append("UserResume", UserResume);
+    formData.append("UserCv", UserCv);
 
-
-const HandleSubmit = async (e) => {
-  e.preventDefault();
-  setStatus("Pending");
-
-  const response = await Axios.get(`http://localhost:5000/GetJobById/${jobId}`);
-
-  Axios.post("http://localhost:5000/applyJOB", { 
-
-    UserName,
-    ContactEmail,
-    UserGithub,
-    UserEmail: user.email,
-    Status:"Pending",
-    JobId : jobId,
-    AdminEmail : response.data.email,
-    Title:response.data.Role,
-    Deadline:response.data.Deadline,
-    CompanyName:response.data.CompanyName,
-    
-
-
-  })
-    .then(() => {
-      alert("Application sent successfully");
-      navigate('/');
+    Axios.post("http://localhost:5000/applyJOB", formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
     })
-    .catch(() => { alert("error posting") });
-};
+      .then(() => {
+        alert("Application sent successfully");
+        navigate('/');
+      })
+      .catch(() => {
+        alert("Error posting");
+      });
+  };
 
+  if (isLoading) {
+    return <div className="text-center mt-10">Loading...</div>;
+  }
 
+  if (!isAuthenticated) {
+    return (
+      <div className="text-center mt-10">
+        <p className="text-red-500 font-semibold">Please Login First</p>
+      </div>
+    );
+  }
 
-if (isLoading) {
-  return <div className="text-center mt-10">Loading...</div>;
-}
-
-if (!isAuthenticated) {
   return (
-    <div className="text-center mt-10">
-      <p className="text-red-500 font-semibold">Please Login First</p>
-    </div>
-  );
-}
-  return (
-    
-    <div
-      className="bg-[#EEEEEE] min-h-screen bg-cover bg-center"
-      
-    >
+    <div className="bg-[#EEEEEE] min-h-screen bg-cover bg-center">
       {/* Navbar */}
       <nav className="bg-[#EEEEEE] py-4">
         <div className="container mx-auto px-4">
-          <h1 className="text-black font-bold text-2xl">My Application Form</h1>
+          <h1 className="text-black font-bold text-2xl">Application Form</h1>
         </div>
       </nav>
 
@@ -84,7 +75,8 @@ if (!isAuthenticated) {
       <div className="container mx-auto px-4 py-8">
         <form
           onSubmit={HandleSubmit}
-         className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
+          className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg"
+        >
           <div className="grid grid-cols-1 gap-6">
             {/* Name */}
             <div>
@@ -97,7 +89,7 @@ if (!isAuthenticated) {
               <input
                 type="text"
                 value={UserName}
-                onChange={(e)=>setUserName(e.target.value)}
+                onChange={(e) => setUserName(e.target.value)}
                 className="input-field w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Sahil Bharti"
                 required
@@ -115,7 +107,7 @@ if (!isAuthenticated) {
               <input
                 type="email"
                 value={ContactEmail}
-                onChange={(e)=>setContactEmail(e.target.value)}
+                onChange={(e) => setContactEmail(e.target.value)}
                 className="input-field w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="john.doe@company.com"
                 required
@@ -133,7 +125,7 @@ if (!isAuthenticated) {
               <input
                 type="url"
                 value={UserGithub}
-                onChange={(e)=>setGitHub(e.target.value)}
+                onChange={(e) => setGitHub(e.target.value)}
                 className="input-field w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="github.com/yourprofile"
                 required
@@ -152,8 +144,9 @@ if (!isAuthenticated) {
                 type="file"
                 id="resume"
                 accept="application/pdf"
+                onChange={(e) => setUserResume(e.target.files[0])}
                 className="input-field w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                
+                required
               />
             </div>
 
@@ -169,8 +162,9 @@ if (!isAuthenticated) {
                 type="file"
                 id="cv"
                 accept="image/*"
+                onChange={(e) => setUserCv(e.target.files[0])}
                 className="input-field w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-               
+                required
               />
             </div>
 
@@ -203,7 +197,7 @@ if (!isAuthenticated) {
                 type="submit"
                 className="text-white bg-[#3C5B6F] hover:bg-[#393E46] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mt-4"
               >
-              Submit 
+                Submit
               </button>
             </div>
           </div>
