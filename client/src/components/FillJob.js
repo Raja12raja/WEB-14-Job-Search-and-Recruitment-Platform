@@ -128,7 +128,7 @@ const FillJob = () => {
                 htmlFor="resume"
                 className="block mb-2 text-sm font-medium text-gray-900"
               >
-                Resume (Drive link)
+                Resume (Google Drive link)
               </label>
               <input
                 type="url"
