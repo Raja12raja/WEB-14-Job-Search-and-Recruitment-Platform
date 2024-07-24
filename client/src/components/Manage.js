@@ -75,14 +75,15 @@ const MDashboard = () => {
                                 <p className="font-bold text-gray-800 text-lg">{row.UserName}</p>
                                 <p className="text-sm text-gray-600">Email: <a href={`mailto:${row.ContactEmail}`}>{row.ContactEmail}</a></p>
                                 <div className="flex flex-row mt-2">
-                                    <p className="text-sm text-gray-600">Resume: <a href="#">View</a></p>
+                                    <p className="text-sm text-gray-600">Resume: <a href={row.UserResume}   target="_blank">View</a></p>
+                                    
                                     <button
                                         className="absolute right-4 top-4 text-emerald-500 bg-transparent border border-emerald-500 hover:bg-emerald-500 hover:text-white active:bg-emerald-600 font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                         onClick={() => handleAcc(row._id)}
                                     >Accept</button>
                                 </div>
                                 <div className="flex flex-row mt-2">
-                                    <p className="text-sm text-gray-600">CV: <a href="#">View</a></p>
+                                <p className="text-sm text-gray-600">Github: <a href={row.UserGithub}   target="_blank">View</a></p>
                                     <button
                                         className="absolute right-4 bottom-3 text-red-500 bg-transparent border border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                         onClick={() => handleDec(row._id)}
@@ -104,12 +105,12 @@ const MDashboard = () => {
                             <div className="w-16 h-16 rounded-full bg-gray-100"></div>
                             <div className="ml-4">
                                 <p className="font-bold text-lg">{row2.UserName}</p>
-                                <p className="text-sm">Email: <a href={`mailto:${row2.ContactEmail}`} className="text-blue-500">{row2.ContactEmail}</a></p>
+                                <p className="text-sm">Email: <a href={`mailto:${row2.ContactEmail}` }   className="text-blue-500">{row2.ContactEmail}</a></p>
                                 <div className="flex flex-row mt-2">
-                                    <p className="text-sm">Resume: <a href="#" className="text-blue-500">View</a></p>
+                                <p className="text-sm text-gray-600">Resume: <a href={row2.UserResume} target="_blank">View</a></p>
                                 </div>
                                 <div className="flex flex-row mt-2">
-                                    <p className="text-sm">CV: <a href="#" className="text-blue-500">View</a></p>
+                                <p className="text-sm text-gray-600">Github: <a href={row2.UserGithub}  target="_blank">View</a></p>
                                 </div>
                             </div>
                         </div>
@@ -129,10 +130,10 @@ const MDashboard = () => {
                                 <p className="font-bold text-lg">{row3.UserName}</p>
                                 <p className="text-sm">Email: <a href={`mailto:${row3.ContactEmail}`} className="text-blue-500">{row3.ContactEmail}</a></p>
                                 <div className="flex flex-row mt-2">
-                                    <p className="text-sm">Resume: <a href="#" className="text-blue-500">View</a></p>
+                                <p className="text-sm text-gray-600">Resume: <a href={row3.UserResume} target="_blank">View</a></p>
                                 </div>
                                 <div className="flex flex-row mt-2">
-                                    <p className="text-sm">CV: <a href="#" className="text-blue-500">View</a></p>
+                                <p className="text-sm text-gray-600">Github: <a href={row3.UserGithub} target="_blank">View</a></p>
                                 </div>
                             </div>
                         </div>
