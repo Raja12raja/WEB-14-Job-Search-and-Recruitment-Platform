@@ -31,7 +31,7 @@ const FillJob = () => {
       Title: response.data.Role,
       Deadline: response.data.Deadline,
       CompanyName: response.data.CompanyName,
-      ResumeLink // Added resume link to the post data
+    UserResume:  ResumeLink // Added resume link to the post data
     })
       .then(() => {
         alert("Application sent successfully");
@@ -128,7 +128,7 @@ const FillJob = () => {
                 htmlFor="resume"
                 className="block mb-2 text-sm font-medium text-gray-900"
               >
-                Resume (Google Drive link)
+                Resume (Drive link)
               </label>
               <input
                 type="url"

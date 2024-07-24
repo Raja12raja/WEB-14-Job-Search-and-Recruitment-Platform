@@ -8,7 +8,6 @@ const AppliedSchema = new mongoose.Schema({
     AdminEmail:String,
     JobId:String,
     UserGithub:String,
-    UserCv:String,
     UserResume:String,
     Status:String,
     Title:String,

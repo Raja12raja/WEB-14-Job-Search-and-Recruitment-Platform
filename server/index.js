@@ -13,24 +13,24 @@ app.use(express.json());
 app.use(cors());
 
 // Ensure the uploads directory exists
-const uploadDir = path.join(__dirname, 'uploads');
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir);
-}
+// const uploadDir = path.join(__dirname, 'uploads');
+// if (!fs.existsSync(uploadDir)) {
+//   fs.mkdirSync(uploadDir);
+// }
 
 // Multer setup
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'uploads/');
-  },
-  filename: function (req, file, cb) {
-    // Generating unique file name
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, uniqueSuffix + path.extname(file.originalname));
-  }
-});
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, 'uploads/');
+//   },
+//   filename: function (req, file, cb) {
+//     // Generating unique file name
+//     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+//     cb(null, uniqueSuffix + path.extname(file.originalname));
+//   }
+// });
 
-const upload = multer({ storage: storage });
+// const upload = multer({ storage: storage });
 
 //connecting to Db
 mongoose.connect("mongodb+srv://naveensh:Mongo1234@cluster0.wmbxka9.mongodb.net/test", {
@@ -138,7 +138,7 @@ app.get('/GetJobById/:id', async (req, res) => {
 });
 
 //Adding applied Job
-app.post('/applyJOB', upload.fields([{ name: 'UserResume' }, { name: 'UserCv' }]), async (req, res) => {
+app.post('/applyJOB',async (req, res) => {
   try {
     const {
       UserName,
@@ -150,11 +150,10 @@ app.post('/applyJOB', upload.fields([{ name: 'UserResume' }, { name: 'UserCv' }]
       Status,
       CompanyName,
       Title,
-      Deadline
+      Deadline,
+      UserResume
     } = req.body;
 
-    const UserCvPath = req.files['UserCv'][0].path;
-    const UserResumePath = req.files['UserResume'][0].path;
 
     const Jobinfo = new AppliedModel({
       UserName,
@@ -167,8 +166,9 @@ app.post('/applyJOB', upload.fields([{ name: 'UserResume' }, { name: 'UserCv' }]
       CompanyName,
       Title,
       Deadline,
-      UserCvPath,
-      UserResumePath
+      UserResume
+    
+
     });
 
     await Jobinfo.save();
