@@ -4,16 +4,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const userRole = localStorage.getItem('userRole');
-  const {
-    
-    isAuthenticated,
-    logout,
-    isLoading,
-  } = useAuth0();
+  const { isAuthenticated, logout } = useAuth0();
 
   return (
     <div className="bg-[#00ADB5]">
-      <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+      <div className="px-4 py-5 mx-auto lg:max-w-screen-2xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <a
             href="/"
@@ -62,60 +57,58 @@ export const Navbar = () => {
               </a>
             </li>
 
-            {userRole==='employer' ?(
-  <li>
-  <a
-    href="/Dashboard"
-    aria-label="Contact"
-    title="Contact"
-    className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
-  >
-    Dashboard
-  </a>
-</li>
-
-            ):(
+            {userRole === 'employer' ? (
               <li>
-              <a
-                href="/Dashboard2"
-                aria-label="Contact"
-                title="Contact"
-                className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
-              >
-                Dashboard
-              </a>
-            </li>
+                <a
+                  href="/Dashboard"
+                  aria-label="Dashboard"
+                  title="Dashboard"
+                  className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
+                >
+                  Dashboard
+                </a>
+              </li>
+            ) : (
+              <li>
+                <a
+                  href="/Dashboard2"
+                  aria-label="Dashboard"
+                  title="Dashboard"
+                  className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
+                >
+                  Dashboard
+                </a>
+              </li>
             )}
-          
-           
-            {userRole==='employer'?(
-                 <li>
-                 <a
-                   href="/PostJob"
-                   aria-label="PostJob"
-                   title="PostJob"
-                   className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
-                 >
-                   PostJob
-                 </a>
-               </li>
 
-              
-            ):(<li></li>)}
-         
+            {userRole === 'employer' ? (
+              <li>
+                <a
+                  href="/PostJob"
+                  aria-label="PostJob"
+                  title="PostJob"
+                  className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
+                >
+                  PostJob
+                </a>
+              </li>
+            ) : null}
           </ul>
           <ul className="items-center hidden space-x-8 lg:flex">
             <li>
               <a
                 href="/login"
                 className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#222831] transition duration-200 rounded shadow-md bg-[#EEEEEE] hover:bg-[#222831] hover:text-white focus:shadow-outline focus:outline-none"
-                aria-label="Sign up"
-                title="Sign up"
+                aria-label="Login"
+                title="Login"
               >
-               {isAuthenticated?(         
-       <button>
-Logout
-</button>   ):(<p> Login</p>)} 
+                {isAuthenticated ? (
+                  <button onClick={() => logout({ returnTo: window.location.origin })}>
+                    Logout
+                  </button>
+                ) : (
+                  <p>Login</p>
+                )}
               </a>
             </li>
           </ul>
@@ -213,8 +206,8 @@ Logout
                       <li>
                         <a
                           href="/Dashboard"
-                          aria-label="Contact"
-                          title="Contact"
+                          aria-label="Dashboard"
+                          title="Dashboard"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
                         >
                           Dashboard
@@ -234,10 +227,16 @@ Logout
                         <a
                           href="/login"
                           className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-[#222831] transition duration-200 rounded shadow-md bg-[#393E46] hover:bg-[#222831] hover:text-white focus:shadow-outline focus:outline-none"
-                          aria-label="Sign up"
-                          title="Sign up"
+                          aria-label="Login"
+                          title="Login"
                         >
-                    {isAuthenticated?(<p> Logout</p>):(<p> Login</p>)} 
+                          {isAuthenticated ? (
+                            <button onClick={() => logout({ returnTo: window.location.origin })}>
+                              Logout
+                            </button>
+                          ) : (
+                            <p>Login</p>
+                          )}
                         </a>
                       </li>
                     </ul>
