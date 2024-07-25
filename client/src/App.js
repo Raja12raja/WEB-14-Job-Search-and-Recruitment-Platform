@@ -41,7 +41,7 @@ function App() {
         <Route exact path="*" element={<Error404 />} />
         <Route path="/edit/:id" element={<EditJob />} />
       </Routes>
-      {/* <Footer1 /> */}
+     <Footer1 />
     </div>
   );
 }
