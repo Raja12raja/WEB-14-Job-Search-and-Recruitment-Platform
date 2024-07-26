@@ -8,6 +8,7 @@ const app = express();
 const UserModel = require('./models/Users'); 
 const JobModel = require('./models/Jobs');
 const AppliedModel = require('./models/Applied');
+const ProfileModel = require('./models/ProfileData');
 
 app.use(express.json());
 app.use(cors());
@@ -268,6 +269,60 @@ app.put('/EditJob/:id', async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).send('Error updating job');
+  }
+});
+
+
+// Route to post profile information
+app.post('/ProfileInfo', async (req, res) => {
+  try {
+    const { Email, Github, LinkedIn, About, Experience, Skills } = req.body;
+
+    console.log('Received profile data:', { Email, Github, LinkedIn, About, Experience, Skills });
+
+    // Check if the profile with the same email already exists
+    let profile = await ProfileModel.findOne({ Email });
+
+    if (profile) {
+      console.log('Profile exists. Updating...');
+      profile.Github = Github || profile.Github;
+      profile.LinkedIn = LinkedIn || profile.LinkedIn;
+      profile.About = About || profile.About;
+      profile.Experience = Experience || profile.Experience;
+      profile.Skills = Skills || profile.Skills;
+
+      await profile.save();
+      console.log('Profile updated successfully');
+      return res.status(200).json({ message: 'Profile updated successfully', profile });
+    } else {
+      console.log('Creating new profile...');
+      profile = new ProfileModel({ Email, Github, LinkedIn, About, Experience, Skills });
+      await profile.save();
+      console.log('Profile created successfully');
+      return res.status(201).json({ message: 'Profile created successfully', profile });
+    }
+  } catch (error) {
+    console.error('Server error:', error);
+    return res.status(500).json({ message: 'Server error', error });
+  }
+});
+
+// Route to get profile information
+app.get('/Getprofile/:email', async (req, res) => {
+  try {
+    const { email } = req.params;
+    console.log('Fetching profile for email:', email);
+    const profile = await ProfileModel.findOne({ Email: email });
+
+    if (!profile) {
+      console.log('Profile not found');
+      return res.status(404).send({ message: 'Profile not found' });
+    }
+    console.log('Profile found:', profile);
+    res.send(profile);
+  } catch (error) {
+    console.error('Error fetching profile:', error);
+    res.status(500).send("Error");
   }
 });
 
