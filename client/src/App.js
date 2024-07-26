@@ -15,7 +15,7 @@ import Footer1 from './components/Footer';
 import EditJob from './components/EditJob';
 
 import './App.css';
-import Completeprofile from './components/Completeprof';
+
 
 function App() {
   const location = useLocation();
@@ -44,7 +44,7 @@ function App() {
           <Route exact path="/Manage/:id" element={<Manage />} />
           <Route exact path="*" element={<Error404 />} />
           <Route path="/edit/:id" element={<EditJob />} />
-          <Route path="/Completeprof" element={<Completeprofile/>}/>
+          {/* <Route path="/Completeprof" element={<Completeprofile/>}/> */}
         </Routes>
       </div>
       <Footer1 />
