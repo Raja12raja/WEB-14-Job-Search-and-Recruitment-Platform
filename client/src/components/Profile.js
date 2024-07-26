@@ -180,13 +180,7 @@ const ProfilePage = () => {
                                 <span className="text-gray-700 uppercase font-bold tracking-wider mb-2">
                                     Skills
                                 </span>
-                                <ul>
-                                    <li className="mb-2">JavaScript</li>
-                                    <li className="mb-2">React</li>
-                                    <li className="mb-2">Node.js</li>
-                                    <li className="mb-2">HTML/CSS</li>
-                                    <li className="mb-2">Tailwind CSS</li>
-                                </ul>
+                               
                             </div>
                         </div>
                     </div>
@@ -197,7 +191,8 @@ const ProfilePage = () => {
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed finibus est
                                 vitae tortor ullamcorper, ut vestibulum velit convallis. Aenean posuere risus non velit egestas
                                 suscipit. Nunc finibus vel ante id euismod. Vestibulum ante ipsum primis in faucibus orci luctus
-                                et ultrices posuere cubilia Curae; Aliquam erat volutpat. Nulla vulputate pharetra tellus, in
+                                et ultrices posuere cubilia Cura
+                                e; Aliquam erat volutpat. Nulla vulputate pharetra tellus, in
                                 luctus risus rhoncus id.
                             </p>
                         </div>
