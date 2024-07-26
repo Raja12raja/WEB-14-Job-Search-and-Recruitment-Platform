@@ -207,13 +207,7 @@ const ProfilePage = () => {
                             <div className="flex flex-col">
                                 <span className="text-gray-700 uppercase font-bold tracking-wider mb-2">
                                     Skills
-                                    <ul>
-                                    <li className="mb-2">JavaScript</li>
-                                    <li className="mb-2">React</li>
-                                    <li className="mb-2">Node.js</li>
-                                    <li className="mb-2">HTML/CSS</li>
-                                    <li className="mb-2">Tailwind CSS</li>
-                                </ul>
+                              
                                 </span>
                                 {profile.Skills}
                             </div>
