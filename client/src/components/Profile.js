@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useNavigate } from 'react-router-dom';
+import {Completeprofile} from './Completeprof';
 
 const ProfilePage = () => {
     const { user, isAuthenticated, loginWithRedirect } = useAuth0();
@@ -20,18 +21,12 @@ const ProfilePage = () => {
         );
     }
 
-
-
-
-    
     const handleEditClick = () => {
-        // Redirect to edit profile page or toggle edit mode
-        navigate('/edit-profile'); // If you have a separate edit profile page
-        // setIsEditing(!isEditing); // Uncomment to toggle edit mode within the same page
+        navigate(`/Completeprof`); 
     };
 
     return (
-        <div className="bg-gray-100">
+        <div className="bg-gray-100 min-h-screen">
             <div className="container mx-auto py-8 px-10 sm:px-20 lg:px-10">
                 <div className="grid grid-cols-4 sm:grid-cols-12 gap-6">
                     <div className="col-span-4 sm:col-span-3">
@@ -45,18 +40,11 @@ const ProfilePage = () => {
                                 <h1 className="text-xl font-bold">{user.name}</h1>
                                 <p className="text-gray-700">{user.email}</p>
                                 <div className="mt-6 flex flex-wrap gap-4 justify-center">
-                                    <a 
-                                        href="#" 
+                                    <button 
+                                        onClick={handleEditClick} 
                                         className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
                                     >
-                                        Contact
-                                    </a>
-                                    
-                                    <button
-                                        onClick={handleEditClick}
-                                        className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
-                                    >
-                                        Edit Profile
+                                        Complete profile
                                     </button>
                                 </div>
                             </div>
