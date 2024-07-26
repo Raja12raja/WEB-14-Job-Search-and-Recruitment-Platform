@@ -132,7 +132,7 @@ const Footer1 = () => {
               Address
             </h3>
             <p className="md:w-48 text-center sm:text-left text-lg md:text-xl font-medium">
-              101 Paradise Road, 97460 Fancy Island REUNION
+              101 Paradise Road, 97460 Fancy Island YUGANDA
             </p>
           </div>
           {/* ::Email */}
@@ -150,7 +150,7 @@ const Footer1 = () => {
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
               </svg>
-              <a href="#email">jobsearch@gmail.com</a>
+              <a href="#email">jobtrek@gmail.com</a>
             </p>
           </div>
           {/* ::Phone */}
@@ -173,7 +173,7 @@ const Footer1 = () => {
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                 />
               </svg>
-              <span>1234-567-346</span>
+              <span>9999-888-777</span>
             </p>
           </div>
         </div>

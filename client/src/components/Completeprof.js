@@ -3,7 +3,7 @@ import Axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 const Completeprofile = () => {
   const [Linkedin, setLinkedin] = useState("");
-  const [Github, setGitHub] = useState("");
+  const [Github, setGithub] = useState("");
   const [Aboutme, setAboutme] = useState(""); 
   const [Experience, setExperience] = useState("");
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const Completeprofile = () => {
 
       await Axios.post("http://localhost:5000/C", {
         Linkedin,
-        GitHub,
+        Github,
         Aboutme,
         Experience,
         CId,
@@ -74,12 +74,12 @@ const Completeprofile = () => {
                 htmlFor="Github"
                 className="block mb-2 text-sm font-medium text-gray-900"
               >
-                GitHub Profile
+                Github Profile
               </label>
               <input
                 type="url"
                 value={Github}
-                onChange={(e) => setGitHub(e.target.value)}
+                onChange={(e) => setGithub(e.target.value)}
                 className="input-field w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="github.com/yourprofile"
                 required

@@ -22,7 +22,7 @@ const ProfilePage = () => {
     }
 
     const handleEditClick = () => {
-        navigate(`/Completeprof`); 
+        navigate(`/Completeprof/${user.sub}`); 
     };
 
     return (
