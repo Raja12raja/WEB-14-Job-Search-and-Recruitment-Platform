@@ -97,11 +97,31 @@ app.post("/loginInfo", async(req,res)=>{
   }
 });
 
-//getting data all jobs
-app.get('/GetJobs', async (req, res) => {
-  const data = await JobModel.find({});
-  res.json({ success: true, msg: "server is getting", data1: data });
+// Route to update user info
+app.put("/ProfileInfo", async (req, res) => {
+  try {
+    const { userEmail, Github, LinkedIn, About, Experience, Skills } = req.body;
+
+    const user = await UserModel.findOne({ userEmail });
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+
+    if (Github) user.Github = Github;
+    if (LinkedIn) user.LinkedIn = LinkedIn;
+    if (About) user.About = About;
+    if (Experience) user.Experience = Experience;
+    if (Skills) user.Skills = Skills;
+
+    await user.save();
+    res.send("info updated");
+  } catch (err) {
+    console.error('Error updating info:', err);
+    res.status(500).send("Error updating info");
+  }
 });
+
+
 
 //getting users
 app.get('/GetUsers', async (req, res) => {
@@ -109,6 +129,13 @@ app.get('/GetUsers', async (req, res) => {
   res.json({ success: true, msg: "server is getting", data2: data });
 });
 
+
+
+//getting data all jobs
+app.get('/GetJobs', async (req, res) => {
+  const data = await JobModel.find({});
+  res.json({ success: true, msg: "server is getting", data1: data });
+});
 //deleting job  
 app.delete('/DeleteJob/:id', async (req, res) => {
   try {
