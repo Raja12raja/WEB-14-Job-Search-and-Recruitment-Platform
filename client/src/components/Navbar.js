@@ -31,8 +31,9 @@ export const Navbar = () => {
               <rect x="14" y="1" width="7" height="6" />
               <rect x="14" y="11" width="7" height="12" />
             </svg>
-            <span className="ml-2 text-xl font-bold tracking-wide text-[#222831] uppercase">
-              Job Platform
+            <span className="ml-2 text-3xl font-bold tracking-wide text-[#222831]">
+            JobTreK
+
             </span>
           </a>
           <ul className="items-center hidden space-x-8 lg:flex">
