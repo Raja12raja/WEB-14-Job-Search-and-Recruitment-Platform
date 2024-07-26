@@ -42,7 +42,7 @@ const Dashboard = () => {
 
 
   if (!isAuthenticated) {
-    return <div>Please Login First ...</div>;
+    return <div className='font-bold'>Please Login First ...</div>;
   }
 
   const deleteJob = async (id) => {

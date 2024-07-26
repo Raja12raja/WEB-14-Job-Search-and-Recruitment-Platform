@@ -132,7 +132,7 @@ const Footer1 = () => {
               Address
             </h3>
             <p className="md:w-48 text-center sm:text-left text-lg md:text-xl font-medium">
-              101 Paradise Road, 97460 Fancy Island YUGANDA
+              101 Paradise Road, 97460 Carrebian Island Uganda
             </p>
           </div>
           {/* ::Email */}
