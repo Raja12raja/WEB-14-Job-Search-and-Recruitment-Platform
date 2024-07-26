@@ -38,7 +38,7 @@ function App() {
           <Route path="/Dashboard2" element={<Dashboard2 />} />
           <Route exact path="/profile" element={<Profile />} />
           <Route exact path="/login" element={<Login />} />
-          <Route path="/FillJob/:id" element={<FillJob />} />
+          <Route path="/Apply/:id" element={<FillJob />} />
           <Route exact path="/Manage/:id" element={<Manage />} />
           <Route exact path="*" element={<Error404 />} />
           <Route path="/edit/:id" element={<EditJob />} />

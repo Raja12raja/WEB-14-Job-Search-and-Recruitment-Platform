@@ -20,6 +20,10 @@ const ProfilePage = () => {
         );
     }
 
+
+
+
+    
     const handleEditClick = () => {
         // Redirect to edit profile page or toggle edit mode
         navigate('/edit-profile'); // If you have a separate edit profile page
