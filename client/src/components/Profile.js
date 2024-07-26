@@ -12,9 +12,9 @@ const ProfilePage = () => {
     const [profile, setProfile] = useState({
         LinkedIn: "",
         Github: "",
-        Skills: "Please complete your Profile", 
-        About: "Please complete your Profile", 
-        Experience: "Please complete your Profile"
+        Skills: "", 
+        About: "", 
+        Experience: ""
     });
 
 
@@ -74,6 +74,9 @@ const ProfilePage = () => {
         }
     }, [isAuthenticated]);
 
+
+    const isProfileComplete = Object.values(profile).every(value => value !== "");
+
     if (!isAuthenticated) {
         return (
             <div className="flex justify-center items-center h-screen">
@@ -104,7 +107,7 @@ const ProfilePage = () => {
                                         onChange={(e) => setProfile({ ...profile, LinkedIn: e.target.value })}
                                         className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                         placeholder="https://www.linkedin.com/in"
-                                        required
+                                        
                                     />
                                 </div>
 
@@ -118,7 +121,7 @@ const ProfilePage = () => {
                                         onChange={(e) => setProfile({ ...profile, Github: e.target.value })}
                                         className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                         placeholder="github.com/yourprofile"
-                                        required
+                                    
                                     />
                                 </div>
 
@@ -131,7 +134,7 @@ const ProfilePage = () => {
                                         onChange={(e) => setProfile({ ...profile, Skills: e.target.value })}
                                         className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                         placeholder="JavaScript, Node.js, MongoDB"
-                                        required
+                                        
                                     />
                                 </div>
 
@@ -144,7 +147,7 @@ const ProfilePage = () => {
                                         onChange={(e) => setProfile({ ...profile, About: e.target.value })}
                                         className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                         placeholder="About you"
-                                        required
+                                       
                                     />
                                 </div>
 
@@ -157,7 +160,7 @@ const ProfilePage = () => {
                                         onChange={(e) => setProfile({ ...profile, Experience: e.target.value })}
                                         className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                         placeholder="Your experience"
-                                        required
+                                        
                                     />
                                 </div>
 
@@ -195,17 +198,21 @@ const ProfilePage = () => {
                                 <h1 className="text-xl font-bold">{user.name}</h1>
                                 <p className="text-gray-700">{user.email}</p>
                                 <div className="mt-6 flex flex-wrap gap-4 justify-center">
-                                    <button 
+
+                                
+                                <button 
                                         onClick={openModal} 
                                         className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
                                     >
-                                        Complete profile
+                                        {isProfileComplete ? "Update profile" : "Complete profile"}
                                     </button>
+
+
                                 </div>
                             </div>
                             <hr className="my-6 border-t border-gray-300" />
-                            <div className="flex flex-col">
-                                <span className="text-gray-700 uppercase font-bold tracking-wider mb-2">
+                            <div className="flex flex-col break-words overflow-hidden">
+                                <span className="text-gray-700 uppercase font-bold tracking-wider mb-2 ">
                                     Skills
                               
                                 </span>
@@ -214,19 +221,20 @@ const ProfilePage = () => {
                         </div>
                     </div>
                     <div className="col-span-4 sm:col-span-9">
-                        <div className="bg-white shadow rounded-lg p-6 mb-6 min-h-[200px]">
-                            <h2 className="text-xl font-bold mb-4">About Me</h2>
-                            <p className="text-gray-700">
-                                {profile.About}
-                            </p>
-                        </div>
-                        <div className="bg-white shadow rounded-lg p-6 min-h-[200px]">
-                            <h2 className="text-xl font-bold mb-4">Experience</h2>
-                            <p className="text-gray-700">
-                                {profile.Experience}
-                            </p>
-                        </div>
-                    </div>
+    <div className="bg-white shadow rounded-lg p-6 mb-6 min-h-[200px]">
+        <h2 className="text-xl font-bold mb-4">About Me</h2>
+        <p className="text-gray-700 break-words overflow-hidden">
+            {profile.About}
+        </p>
+    </div>
+    <div className="bg-white shadow rounded-lg p-6 min-h-[200px]">
+        <h2 className="text-xl font-bold mb-4">Experience</h2>
+        <p className="text-gray-700 break-words overflow-hidden">
+            {profile.Experience}
+        </p>
+    </div>
+</div>
+
                 </div>
             </div>
         </div>

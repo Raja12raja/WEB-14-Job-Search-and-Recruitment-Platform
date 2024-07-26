@@ -25,6 +25,7 @@ const About = () => {
 
   return (
     <div className="flex flex-col h-screen">
+       {!isAuthenticated && (
       <div className="flex flex-row justify-between items-start mt-16 mx-32">
         <div className="text-left flex-1">
           <h1 className="text-green-600 text-2xl font-bold mb-4">
@@ -37,7 +38,7 @@ const About = () => {
             Discover Variety of career opportunities!
           </p>
         </div>
-        {!isAuthenticated && (
+       
           <div
             className="flex flex-col items-center justify-center p-4 bg-white rounded-lg shadow-lg ml-32"
             style={{
@@ -50,7 +51,7 @@ const About = () => {
             <h2 className="text-xl font-bold mb-4">Candidate Login</h2>
             <p className="mb-4">Searching for job?</p>
             <button
-              className="text-black-700 hover:text-white border border-black-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900"
+              className="text-black-700 hover:text-white border border-black-700 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-green-400 dark:text-green-400 dark:hover:text-white dark:hover:bg-green-500 dark:focus:ring-green-900"
               onClick={() => {
                 loginWithRedirect();
                 determineUserRole("candidate");
@@ -59,9 +60,10 @@ const About = () => {
               Login as Candidate
             </button>
           </div>
-        )}
-      </div>
-
+       
+      </div> 
+    )}
+      {!isAuthenticated && (
       <div className="flex flex-row justify-between items-start mt-16 mx-32">
         <div className="text-left flex-1">
           <h1 className="text-green-600 text-2xl font-bold mb-4">
@@ -74,7 +76,7 @@ const About = () => {
             Trusted by 100+ fortune 500 companies!
           </p>
         </div>
-        {!isAuthenticated && (
+       
           <div
             className="flex flex-col items-center justify-center p-4 bg-white rounded-lg shadow-lg ml-32"
             style={{
@@ -87,7 +89,7 @@ const About = () => {
             <h2 className="text-xl font-bold mb-4">Employer Login</h2>
             <p className="mb-4">Wanna post job?</p>
             <button
-              className="text-black-700 hover:text-white border border-black-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900"
+              className="text-black-700 hover:text-white border border-black-700 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-green-400 dark:text-green-400 dark:hover:text-white dark:hover:bg-green-500 dark:focus:ring-green-900"
               onClick={() => {
                 loginWithRedirect();
                 determineUserRole("employer");
@@ -96,8 +98,9 @@ const About = () => {
               Login as Employer
             </button>
           </div>
-        )}
+      
       </div>
+        )}
 
       {isAuthenticated && (
         <div className="flex justify-center mt-16">
@@ -111,9 +114,9 @@ const About = () => {
               margin: "0 32px",
             }}
           >
-            <h2 className="text-xl font-bold mb-4">Wanna Logout ?🥲</h2>
+            <h2 className="text-xl font-bold mb-4">Are U Sure ?🤨</h2>
             <button
-              className="text-black-700 hover:text-white border border-black-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900"
+             className="text-black-700 hover:text-white border border-black-700 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-red-400 dark:text-red-400 dark:hover:text-white dark:hover:bg-red-500 dark:focus:ring-red-900"
               onClick={() => logout()}
             >
               Logout
