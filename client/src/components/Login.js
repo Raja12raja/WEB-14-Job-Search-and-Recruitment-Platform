@@ -22,6 +22,7 @@ const About = () => {
   if (isLoading) {
     return <div>Loading ...</div>;
   }
+ 
 
   return (
     <div className="flex flex-col h-screen">
