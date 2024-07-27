@@ -47,8 +47,6 @@ const Dashboard2 = () => {
 
     // Filter jobs based on user's email
     const filteredJobs = allAppliedJobs.filter(job => job.UserEmail === user.email);
-    console.log(filteredJobs)
-    console.log(allAppliedJobs)
 
     return (
         <div>
