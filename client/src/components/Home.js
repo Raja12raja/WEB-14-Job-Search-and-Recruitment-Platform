@@ -71,10 +71,8 @@ const Home = () => {
 
   return (
     <div className="bg-[#EEEEEE]">
-      <div
-        className="relative bg-custom-bg bg-cover bg-center max-w-screen-2xl container mx-auto xl:px-24 px-4 py-14"
-        style={{ height: "60vh" }}
-      >
+     <div className="relative bg-custom-bg bg-cover bg-center w-full max-w-full xl:px-24 px-4 py-14" style={{ height: '60vh' }}>
+
         <div className="absolute inset-0 bg-black opacity-50"></div>{" "}
         {/* Overlay to decrease transparency */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full">
@@ -97,8 +95,8 @@ const Home = () => {
             Thousands of jobs in the computer, engineering and technology
             sectors are waiting for you
           </p>
-          <form className="flex justify-center" onSubmit={handleSubmit}>
-            <div className="w-full md:w-1/1 flex items-center">
+          <form className="flex justify-center w-full" onSubmit={handleSubmit}>
+            <div className="w-full md:w-1/3 flex items-center">
               <div className="relative bg-white rounded-lg shadow-sm ring-1 ring-gray-300 focus-within:ring-2 focus-within:ring-indigo-600 flex-1">
                 <input
                   type="text"
