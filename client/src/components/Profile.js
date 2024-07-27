@@ -79,14 +79,10 @@ const ProfilePage = () => {
 
     if (!isAuthenticated) {
         return (
-            <div className="flex justify-center items-center h-screen">
-                <button 
-                    onClick={() => loginWithRedirect()} 
-                    className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
-                >
-                    Log In
-                </button>
-            </div>
+            
+<div >Please Login First ...</div>
+  
+            
         );
     }
 

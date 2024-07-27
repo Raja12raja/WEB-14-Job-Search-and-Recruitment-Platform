@@ -7,7 +7,7 @@ export const Navbar = () => {
   const { isAuthenticated, logout } = useAuth0();
 
   return (
-    <div className="bg-[#00ADB5]">
+    <div className="bg-[#028391]">
       <div className="px-4 py-5 mx-auto lg:max-w-screen-2xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <a
@@ -31,8 +31,9 @@ export const Navbar = () => {
               <rect x="14" y="1" width="7" height="6" />
               <rect x="14" y="11" width="7" height="12" />
             </svg>
-            <span className="ml-2 text-xl font-bold tracking-wide text-[#222831] uppercase">
-              Job Platform
+            <span className="ml-2 text-3xl font-bold tracking-wide text-[#222831]">
+            JobTreX
+
             </span>
           </a>
           <ul className="items-center hidden space-x-8 lg:flex">
