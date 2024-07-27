@@ -281,13 +281,13 @@ app.post('/ProfileInfo', async (req, res) => {
   try {
     const { UEmail, Github, LinkedIn, About, Experience, Skills } = req.body;
 
-    console.log('Received profile data:', { UEmail, Github, LinkedIn, About, Experience, Skills });
+   
 
     // Check if the profile with the same email already exists
     let profile = await ProfileModel.findOne({ UEmail });
 
     if (profile) {
-      console.log('Profile exists. Updating...');
+     
       profile.Github = Github || profile.Github;
       profile.LinkedIn = LinkedIn || profile.LinkedIn;
       profile.About = About || profile.About;
@@ -295,16 +295,16 @@ app.post('/ProfileInfo', async (req, res) => {
       profile.Skills = Skills || profile.Skills;
 
       await profile.save();
-      console.log('Profile updated successfully');
+     
       return res.status(200).json({ message: 'Profile updated successfully', profile });
     } else {
-      console.log('Creating new profile...');
-      console.log(UEmail);
+     
+    
       profile = new ProfileModel({ UEmail, Github, LinkedIn, About, Experience, Skills });
 
       try {
         await profile.save();
-        console.log('Profile created successfully');
+       
         return res.status(201).json({ message: 'Profile created successfully', profile });
       } catch (saveError) {
         console.error('Error saving new profile:', saveError);
@@ -321,14 +321,14 @@ app.post('/ProfileInfo', async (req, res) => {
 app.get('/Getprofile/:UEmail', async (req, res) => {
   try {
     const { UEmail } = req.params;
-    console.log('Fetching profile for email:', UEmail);
+   
     const profile = await ProfileModel.findOne({ UEmail });
 
     if (!profile) {
       console.log('Profile not found');
       return res.status(404).send({ message: 'Profile not found' });
     }
-    console.log('Profile found:', profile);
+  
     res.send(profile);
   } catch (error) {
     console.error('Error fetching profile:', error);

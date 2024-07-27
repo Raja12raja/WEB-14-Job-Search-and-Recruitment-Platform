@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Create = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -41,8 +43,15 @@ const Create = () => {
 
     Axios.post("http://localhost:5000/postJob", { blog })
       .then(() => {
-        alert("Job posted successfully");
+        {  toast.success('Job Uploaded Succesfully', {
+          position: "top-right",
+          autoClose: 2001,
+          theme: "dark",
+        });
+      }
+      setTimeout(() => {
         navigate('/');
+      }, 1500);
       })
       .catch(() => { alert("error posting") });
   };
@@ -158,8 +167,6 @@ const Create = () => {
             >
               <option value="Full time">Full time</option>
               <option value="Internship">Internship</option>
-              <option value="Freelance">Freelance</option>
-              <option value="Contract">Contract</option>
               <option value="Part time">Part time</option>
             </select>
           </div>
@@ -197,6 +204,7 @@ const Create = () => {
           </button>
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
 };
