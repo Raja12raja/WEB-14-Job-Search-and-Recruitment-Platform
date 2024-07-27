@@ -12,7 +12,7 @@ It is a full-stack Job-Platform built with <a href="https://react.dev/" target="
 ### Frontend:
 - <a href="https://react.dev/" target="_blank">ReactJS</a>
 - <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>
-- <a href="https://auth0.com/blog/complete-guide-to-react-user-authentication/" target="_blank">Auth0</a>
+- <a href="https://auth0.com/" target="_blank">Auth0</a>
 - <a href="https://axios-http.com/" target="_blank">Axios</a>
 
 ### Backend:
