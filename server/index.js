@@ -101,9 +101,9 @@ app.post("/loginInfo", async(req,res)=>{
 // Route to update user info
 app.put("/ProfileInfo", async (req, res) => {
   try {
-    const { userEmail, Github, LinkedIn, About, Experience, Skills } = req.body;
+    const { UEmail, Github, LinkedIn, About, Experience, Skills } = req.body;
 
-    const user = await UserModel.findOne({ userEmail });
+    const user = await UserModel.findOne({ UEmail });
     if (!user) {
       return res.status(404).send("User not found");
     }
@@ -173,6 +173,7 @@ app.post('/applyJOB',async (req, res) => {
       UserEmail,
       ContactEmail,
       AdminEmail,
+
       JobId,
       UserGithub,
       Status,
@@ -276,12 +277,12 @@ app.put('/EditJob/:id', async (req, res) => {
 // Route to post profile information
 app.post('/ProfileInfo', async (req, res) => {
   try {
-    const { Email, Github, LinkedIn, About, Experience, Skills } = req.body;
+    const { UEmail, Github, LinkedIn, About, Experience, Skills } = req.body;
 
-    console.log('Received profile data:', { Email, Github, LinkedIn, About, Experience, Skills });
+    console.log('Received profile data:', { UEmail, Github, LinkedIn, About, Experience, Skills });
 
     // Check if the profile with the same email already exists
-    let profile = await ProfileModel.findOne({ Email });
+    let profile = await ProfileModel.findOne({ UEmail });
 
     if (profile) {
       console.log('Profile exists. Updating...');
@@ -296,10 +297,17 @@ app.post('/ProfileInfo', async (req, res) => {
       return res.status(200).json({ message: 'Profile updated successfully', profile });
     } else {
       console.log('Creating new profile...');
-      profile = new ProfileModel({ Email, Github, LinkedIn, About, Experience, Skills });
-      await profile.save();
-      console.log('Profile created successfully');
-      return res.status(201).json({ message: 'Profile created successfully', profile });
+      console.log(UEmail);
+      profile = new ProfileModel({ UEmail, Github, LinkedIn, About, Experience, Skills });
+
+      try {
+        await profile.save();
+        console.log('Profile created successfully');
+        return res.status(201).json({ message: 'Profile created successfully', profile });
+      } catch (saveError) {
+        console.error('Error saving new profile:', saveError);
+        return res.status(500).json({ message: 'Error saving new profile', error: saveError });
+      }
     }
   } catch (error) {
     console.error('Server error:', error);
@@ -308,11 +316,11 @@ app.post('/ProfileInfo', async (req, res) => {
 });
 
 // Route to get profile information
-app.get('/Getprofile/:email', async (req, res) => {
+app.get('/Getprofile/:UEmail', async (req, res) => {
   try {
-    const { email } = req.params;
-    console.log('Fetching profile for email:', email);
-    const profile = await ProfileModel.findOne({ Email: email });
+    const { UEmail } = req.params;
+    console.log('Fetching profile for email:', UEmail);
+    const profile = await ProfileModel.findOne({ UEmail });
 
     if (!profile) {
       console.log('Profile not found');

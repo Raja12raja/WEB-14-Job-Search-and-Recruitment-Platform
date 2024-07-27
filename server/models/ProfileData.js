@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const ProfileSchema = new mongoose.Schema({
-  Email: { type: String, required: true, unique: true },
+  UEmail: { type: String, required: true, unique: true },
   Github: { type: String },
   LinkedIn: { type: String },
   About: { type: String },
@@ -9,6 +9,6 @@ const ProfileSchema = new mongoose.Schema({
   Skills: { type: String }
 });
 
-const ProfileModel = mongoose.model('Profile', ProfileSchema);
+const ProfileModel = mongoose.model('Profileee', ProfileSchema);
 
 module.exports = ProfileModel;
