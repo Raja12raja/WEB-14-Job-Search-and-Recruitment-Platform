@@ -19,8 +19,6 @@ It is a full-stack Job-Platform built with <a href="https://react.dev/" target="
 - <a href="https://nodejs.org/en" target="_blank">NodeJS</a>
 - <a href="https://expressjs.com/" target="_blank">ExpressJS</a>
 - <a href="https://www.mongodb.com/" target="_blank">MongoDB</a>
-- <a href="https://jwt.io/" target="_blank">Json webtoken</a>
-- <a href="https://www.npmjs.com/package/bcryptjs" target="_blank">BcryptJS</a>
 
 ## Installation
 - Setup <a href="https://code.visualstudio.com/" target="_blank">VS code</a>
