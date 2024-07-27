@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { redirect } from 'react-router-dom';
 
 const ProfilePage = () => {
     const { user, isAuthenticated , isLoading} = useAuth0();
@@ -211,10 +212,15 @@ const ProfilePage = () => {
                                 <p className="text-gray-700">{user.email}</p>
                                 <div className="mt-6 flex flex-wrap gap-4 justify-center">
 
-                                
+                                <a href={profile.LinkedIn} target='blank'
+                                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+                                > LinkedIn</a>
+                                <a href={profile.Github} target='blank'
+                                className="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded"
+                                > GitHub</a>
                                 <button 
                                         onClick={openModal} 
-                                        className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+                                        className="bg-[#028391] hover:bg-gray-700  text-white py-2 px-4 rounded"
                                     >
                                         {isProfileComplete ? "Update profile" : "Complete profile"}
                                     </button>
