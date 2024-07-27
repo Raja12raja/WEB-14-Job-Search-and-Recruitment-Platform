@@ -15,8 +15,6 @@ const Completeprofile = () => {
     setIsLoading(true); // Start loading
 
     try {
-      const response = await Axios.get(`http://localhost:5000/GetCById/${CId}`);
-
       await Axios.post("http://localhost:5000/C", {
         Linkedin,
         Github,
