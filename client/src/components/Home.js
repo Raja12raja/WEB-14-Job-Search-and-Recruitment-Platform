@@ -71,12 +71,13 @@ const Home = () => {
   <div className="relative z-10 flex flex-col items-center justify-center h-full">
     <h1 className='text-5xl font-bold text-primary mb-3 text-center'>
       <span className='text-[#41C9E2]'>Find Your</span> 
-      <span className='text-[#EEEEEE]'>Jobs</span> 
-      <span className='text-[#41C9E2]'>here</span>
+      <span className='text-[#EEEEEE] ml-2'>Jobs</span> 
+      <span className='text-[#41C9E2] ml-2'>here</span>
     </h1>
-    <p className='text-lg text-[#EEEEEE] mb-8 text-center'>
+    <p className=' text-lg text-[#EEEEEE] mb-8 text-center '>
       Thousands of jobs in the computer, engineering and technology sectors are waiting for you
     </p>
+    
     <form className="flex justify-center w-full" onSubmit={handleSubmit}>
       <div className='w-full md:w-1/3 flex items-center'>
         <div className='relative bg-white rounded-lg shadow-sm ring-1 ring-gray-300 focus-within:ring-2 focus-within:ring-indigo-600 flex-1'>
