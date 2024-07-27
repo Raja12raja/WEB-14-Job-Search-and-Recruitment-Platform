@@ -36,7 +36,7 @@ const ProfilePage = () => {
 
         try {
             const response = await Axios.post("http://localhost:5000/ProfileInfo", {
-                Email: user.email,
+                UEmail: user.email,
                 ...profile
             });
 
