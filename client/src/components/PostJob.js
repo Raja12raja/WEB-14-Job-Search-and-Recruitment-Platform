@@ -81,30 +81,6 @@ const Create = () => {
 
   return (
     <div className="flex flex-col min-h-screen mx-10 my-10 items-center">
-      <div className="text-center">
-        <h2 className="text-xl text-green font-bold mb-2">Get started with JobTreX</h2>
-        <h1 className="text-5xl font-bold mb-2">Post a job in minutes</h1>
-        <p className="text-lg mb-6">Revolutionize your hiring with our Platform.</p>
-        <ul className="text-left mb-4">
-          <li className="flex items-center mb-2">
-            <span className="bg-green-500 text-white px-2 py-1 rounded-full mr-2">✔️</span>
-            <span className="text-lg font-semibold">Get unlimited applications</span>
-          </li>
-          <li className="flex items-center mb-2">
-            <span className="bg-green-500 text-white px-2 py-1 rounded-full mr-2">✔️</span>
-            <span className="text-lg font-semibold"> Higher relevancy</span>
-          </li>
-          <li className="flex items-center mb-2">
-            <span className="bg-green-500 text-white px-2 py-1 rounded-full mr-2">✔️</span>
-            <span className="text-lg font-semibold">Simplified job posting process</span>
-          </li>
-          <li className="flex items-center mb-2">
-            <span className="bg-green-500 text-white px-2 py-1 rounded-full mr-2">✔️</span>
-            <span className="text-lg font-semibold">40% better ROI than market</span>
-          </li>
-        </ul>
-        <button className="bg-gray-600 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded">Post a job now</button>
-      </div>
       <div className="w-full max-w-2xl bg-white bg-opacity-70 rounded-lg shadow-md mx-5 md:mx-10 my-10 p-5">
         <h1 className="text-2xl font-bold text-center mb-6">Post a Job</h1>
         <form onSubmit={HandleSubmit} className="flex flex-col gap-4 text-center">
