@@ -1,9 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
 const app = express();
 const UserModel = require('./models/Users'); 
 const JobModel = require('./models/Jobs');
@@ -12,6 +9,11 @@ const ProfileModel = require('./models/ProfileData');
 
 app.use(express.json());
 app.use(cors());
+
+require('dotenv').config();
+
+const mongoURI = process.env.MONGO_URI;
+const port = process.env.PORT || 5000;
 
 // Ensure the uploads directory exists
 // const uploadDir = path.join(__dirname, 'uploads');
@@ -34,7 +36,7 @@ app.use(cors());
 // const upload = multer({ storage: storage });
 
 //connecting to Db
-mongoose.connect("mongodb+srv://naveensh:Mongo1234@cluster0.wmbxka9.mongodb.net/test", {
+mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -334,6 +336,6 @@ app.get('/Getprofile/:UEmail', async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
+app.listen(port, () => {
   console.log("SERVER STARTED ");
 });

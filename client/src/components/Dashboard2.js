@@ -102,17 +102,3 @@ const Dashboard2 = () => {
 }
 
 export default Dashboard2;
-
-
-
-
-
-
-
-
-
-{/* <td class="py-4 px-6 border-b border-gray-200 text-gray-900 text-sm">
-<span class="inline-block px-3 py-1 font-semibold leading-tight rounded-full bg-red-200 text-red-900">
-  Inactivo
-</span>
-</td> */}
