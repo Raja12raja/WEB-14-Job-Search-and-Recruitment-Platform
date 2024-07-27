@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProfilePage = () => {
-    const { user, isAuthenticated} = useAuth0();
+    const { user, isAuthenticated , isLoading} = useAuth0();
     
     // State for profile details
     const [profile, setProfile] = useState({
@@ -15,14 +17,13 @@ const ProfilePage = () => {
     });
 
 
-    const [isLoading, setIsLoading] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
 
     // Handler for form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setIsLoading(true);
+        
 
         try {
             const response = await Axios.post("http://localhost:5000/ProfileInfo", {
@@ -30,15 +31,20 @@ const ProfilePage = () => {
                 ...profile
             });
 
-            console.log('Profile submitted successfully', response.data);
-            alert("Profile completed successfully");
+           
+            {  toast.success('Profile Updated Succesfully', {
+                position: "top-right",
+                autoClose: 2001,
+                theme: "dark",
+              });
+            }
             setIsModalOpen(false);
             
         } catch (error) {
             console.error('Error submitting profile:', error);
             alert("Error completing profile");
         } finally {
-            setIsLoading(false);
+            
         }
     };
 
@@ -66,8 +72,8 @@ const ProfilePage = () => {
 
 
     const isProfileComplete = Object.values(profile).every(value => value !== "");
-
-    if (!isAuthenticated) {
+    
+    if (isLoading) {
         return <div className="text-center "><div class="flex items-center justify-center w-full h-[100vh] text-gray-900 ">
 
       
@@ -85,6 +91,16 @@ const ProfilePage = () => {
 
   </div></div>;
     }
+    
+        if (!isAuthenticated) {
+            return (
+              <div className="text-center mt-10">
+                <p className="text-red-500 font-semibold">Please Login First</p>
+              </div>
+            );
+          
+    }
+    
 
     return (
         <div className="bg-gray-100 min-h-screen">
@@ -233,6 +249,8 @@ const ProfilePage = () => {
 
                 </div>
             </div>
+            <ToastContainer />
+
         </div>
     );
 };

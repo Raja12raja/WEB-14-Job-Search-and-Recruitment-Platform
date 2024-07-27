@@ -17,12 +17,7 @@ const FillJob = () => {
   const { id: jobId } = useParams();
   
   const HandleSubmit = async (e) => {
-    {  toast.success('Application sent succesfully', {
-      position: "top-right",
-      autoClose: 1001,
-      theme: "dark",
-    });
-  }
+   
     e.preventDefault();
     setStatus("Pending");
 
@@ -43,7 +38,12 @@ const FillJob = () => {
     
     })
     .then(() => {
-  
+      {  toast.success('Application sent succesfully', {
+        position: "top-right",
+        autoClose: 2001,
+        theme: "dark",
+      });
+    }
       setTimeout(() => {
         navigate('/');
       }, 1000);
