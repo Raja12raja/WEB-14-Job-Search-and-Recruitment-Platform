@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate, useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const FillJob = () => {
   const [UserName, setUserName] = useState("");
@@ -13,8 +15,14 @@ const FillJob = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const navigate = useNavigate();
   const { id: jobId } = useParams();
-
+  
   const HandleSubmit = async (e) => {
+    {  toast.success('Application sent succesfully', {
+      position: "top-right",
+      autoClose: 1001,
+      theme: "dark",
+    });
+  }
     e.preventDefault();
     setStatus("Pending");
 
@@ -32,11 +40,15 @@ const FillJob = () => {
       Deadline: response.data.Deadline,
       CompanyName: response.data.CompanyName,
     UserResume:  ResumeLink // Added resume link to the post data
+    
     })
-      .then(() => {
-        alert("Application sent successfully");
+    .then(() => {
+  
+      setTimeout(() => {
         navigate('/');
-      })
+      }, 1000);
+     
+    })
       .catch(() => { alert("Error posting application") });
   };
 
@@ -177,6 +189,7 @@ const FillJob = () => {
           </div>
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
 };
