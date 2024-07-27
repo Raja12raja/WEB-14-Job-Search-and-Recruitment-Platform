@@ -54,21 +54,17 @@ const FillJob = () => {
 
   return (
     <div className="bg-[#EEEEEE] min-h-screen bg-cover bg-center">
-      {/* Navbar */}
       <nav className="bg-[#EEEEEE] py-4">
         <div className="container mx-auto px-4">
           <h1 className="text-black font-bold text-2xl">My Application Form</h1>
         </div>
       </nav>
-
-      {/* Main Content */}
       <div className="container mx-auto px-4 py-8">
         <form
           onSubmit={HandleSubmit}
           className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg"
         >
           <div className="grid grid-cols-1 gap-6">
-            {/* Name */}
             <div>
               <label
                 htmlFor="Name"
@@ -85,8 +81,6 @@ const FillJob = () => {
                 required
               />
             </div>
-
-            {/* Email address */}
             <div>
               <label
                 htmlFor="email"
@@ -103,8 +97,6 @@ const FillJob = () => {
                 required
               />
             </div>
-
-            {/* GitHub Profile */}
             <div>
               <label
                 htmlFor="github"
@@ -121,8 +113,6 @@ const FillJob = () => {
                 required
               />
             </div>
-
-            {/* Resume (LINK) */}
             <div>
               <label
                 htmlFor="resume"
@@ -140,8 +130,6 @@ const FillJob = () => {
                 required
               />
             </div>
-
-            {/* Terms and conditions checkbox */}
             <div className="flex items-start">
               <input
                 id="remember"
@@ -163,8 +151,6 @@ const FillJob = () => {
                 .
               </label>
             </div>
-
-            {/* Submit button */}
             <div className="text-center">
               <button
                 type="submit"

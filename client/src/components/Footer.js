@@ -4,22 +4,15 @@ const Footer1 = () => {
   return (
     <footer className="w-full py-3 sm:py-5 px-4 bg-[#393E46]">
       {" "}
-      {/* Adjusted padding here */}
       <h2 className="sr-only">Footer</h2>
       <div className="flex flex-col-reverse sm:flex-row md:justify-between lg:justify-around">
-        {/* :SITE NAME & SOCIAL NETWORKS */}
         <div className="relative mt-8 sm:mt-0 px-5 flex flex-col justify-center items-center text-white">
           {" "}
-          {/* Adjusted margin-top here */}
-          {/* ::Site name */}
           <h1 className="font-title text-4xl text-center font-semibold mt-auto text-[#00ADB5]">
             Job Search & Recruitment Platform
           </h1>
-          {/* ::Social & copyright */}
           <div className="mt-auto flex flex-col items-center">
-            {/* :::Social */}
             <span className="inline-flex mt-6 w-full justify-center md:justify-start md:w-auto">
-              {/* Facebook */}
               <a href="#link" className="text-white">
                 <span className="sr-only">Facebook</span>
                 <svg
@@ -33,7 +26,6 @@ const Footer1 = () => {
                   <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
                 </svg>
               </a>
-              {/* Twitter */}
               <a href="#link" className="ml-3 text-white">
                 <span className="sr-only">Twitter</span>
                 <svg
@@ -47,7 +39,6 @@ const Footer1 = () => {
                   <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
                 </svg>
               </a>
-              {/* Instagram */}
               <a href="#link" className="ml-3 text-white">
                 <span className="sr-only">Instagram</span>
                 <svg
@@ -63,7 +54,6 @@ const Footer1 = () => {
                   <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
                 </svg>
               </a>
-              {/* Linkedin */}
               <a href="#link" className="ml-3 text-white">
                 <span className="sr-only">Linkedin</span>
                 <svg
@@ -83,22 +73,16 @@ const Footer1 = () => {
                 </svg>
               </a>
             </span>
-            {/* :::Copyright */}
             <span className="py-2 text-xs">
               &copy;2024, All Rights Reserved.
             </span>{" "}
-            {/* Adjusted padding here */}
           </div>
-          {/* ::Mobile separator line */}
           <span
             className="sm:hidden absolute -top-4 left-1/2 w-1/4 h-px bg-white transform -translate-x-1/2"
             aria-hidden="true"
           />
         </div>
-
-        {/* :NAVIGATION */}
         <div className="grid grid-cols-2 gap-5 text-white">
-          {/* ::Navigation */}
           <div className="col-span-2 md:col-span-1 pb-0 md:py-3 px-4">
             <h3 className="py-1.5 md:py-4 text-center sm:text-left text-xl text-white font-bold tracking-wide">
               Navigation
@@ -126,7 +110,6 @@ const Footer1 = () => {
               </li>
             </nav>
           </div>
-          {/* ::Address */}
           <div className="col-span-2 md:col-span-1 pb-0 md:py-3 px-4 flex flex-col items-center sm:items-start">
             <h3 className="py-1.5 md:py-4 text-xl text-white font-bold tracking-wide">
               Address
@@ -135,7 +118,6 @@ const Footer1 = () => {
               101 Paradise Road, 97460 Carrebian Island Uganda
             </p>
           </div>
-          {/* ::Email */}
           <div className="col-span-2 md:col-span-1 pb-0 md:py-3 px-4 flex flex-col items-center sm:items-start">
             <h3 className="py-1.5 md:py-4 text-xl text-white font-bold tracking-wide">
               Stay Connected
@@ -153,7 +135,6 @@ const Footer1 = () => {
               <a href="#email">jobtrek@gmail.com</a>
             </p>
           </div>
-          {/* ::Phone */}
           <div className="col-span-2 md:col-span-1 pb-0 md:py-3 px-4 flex flex-col items-center sm:items-start">
             <h3 className="py-1.5 md:py-4 text-xl text-white font-bold tracking-wide">
               Phone contact

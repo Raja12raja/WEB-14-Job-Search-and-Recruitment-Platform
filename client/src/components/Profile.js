@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
-import { useNavigate, useParams } from 'react-router-dom';
 
 const ProfilePage = () => {
-    const { user, isAuthenticated, loginWithRedirect } = useAuth0();
-    const navigate = useNavigate();
-    const { id: CId } = useParams();
+    const { user, isAuthenticated} = useAuth0();
     
     // State for profile details
     const [profile, setProfile] = useState({
@@ -21,13 +18,6 @@ const ProfilePage = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setProfile((prevProfile) => ({
-          ...prevProfile,
-          [name]: value
-        }));
-      };
 
     // Handler for form submission
     const handleSubmit = async (e) => {
