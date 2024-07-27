@@ -12,15 +12,13 @@ It is a full-stack Job-Platform built with <a href="https://react.dev/" target="
 ### Frontend:
 - <a href="https://react.dev/" target="_blank">ReactJS</a>
 - <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>
-- <a href="https://auth0.com/blog/complete-guide-to-react-user-authentication/" target="_blank">Auth0</a>
+- <a href="https://auth0.com/" target="_blank">Auth0</a>
 - <a href="https://axios-http.com/" target="_blank">Axios</a>
 
 ### Backend:
 - <a href="https://nodejs.org/en" target="_blank">NodeJS</a>
 - <a href="https://expressjs.com/" target="_blank">ExpressJS</a>
 - <a href="https://www.mongodb.com/" target="_blank">MongoDB</a>
-- <a href="https://jwt.io/" target="_blank">Json webtoken</a>
-- <a href="https://www.npmjs.com/package/bcryptjs" target="_blank">BcryptJS</a>
 
 ## Installation
 - Setup <a href="https://code.visualstudio.com/" target="_blank">VS code</a>
