@@ -71,8 +71,10 @@ const Home = () => {
 
   return (
     <div className="bg-[#EEEEEE]">
-     <div className="relative bg-custom-bg bg-cover bg-center w-full max-w-full xl:px-24 px-4 py-14" style={{ height: '60vh' }}>
-
+      <div
+        className="relative bg-custom-bg bg-cover bg-center w-full max-w-full xl:px-24 px-4 py-14"
+        style={{ height: "60vh" }}
+      >
         <div className="absolute inset-0 bg-black opacity-50"></div>{" "}
         {/* Overlay to decrease transparency */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full">
@@ -80,16 +82,16 @@ const Home = () => {
           <div class="text-5xl font-bold text-primary mb-3 text-center text-[#41C9E2]">
             Find Your{" "}
             <span class="text-white inline-flex flex-col h-[calc(theme(fontSize.3xl)*theme(lineHeight.tight))] md:h-[calc(theme(fontSize.4xl)*theme(lineHeight.tight))] overflow-hidden">
-              <ul class="block animate-text-slide-5 text-left leading-tight [&_li]:block">
-                <li>Jobs</li>
-                <li>Jobs</li>
-                <li>Jobs</li>
-                <li>Jobs</li>
-                <li>Jobs</li>
-                <li aria-hidden="true">Jobs</li>
+              <ul class="block animate-text-slide-4 text-left leading-tight [&_li]:block">
+                {/* <li>Candidate</li> */}
+                <li>Candidates</li>
+                <li>Dream Job</li>
+                <li>Candidates</li>
+                <li>Dream Job</li>
+                <li aria-hidden="true">Dream Job</li>
               </ul>
             </span>
-            <span class="text-5xl font-bold text-primary mb-3 text-center text-[#41C9E2]"> Here</span>
+            {/* <span class="text-5xl font-bold text-primary mb-3 text-center text-[#41C9E2]"> Here</span> */}
           </div>
           <p className="text-lg text-[#EEEEEE] mb-8 text-center">
             Thousands of jobs in the computer, engineering and technology
