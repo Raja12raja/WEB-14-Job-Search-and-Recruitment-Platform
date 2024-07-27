@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
-import { useNavigate, useParams } from 'react-router-dom';
+import {useParams } from 'react-router-dom';
 
 const MDashboard = () => {
-    const { user, isAuthenticated, isLoading } = useAuth0();
+    const {isAuthenticated, isLoading } = useAuth0();
     const [allAppliedJobs, setAllAppliedJobs] = useState([]);
-    const navigate = useNavigate();
     const { id: jobId } = useParams();
 
     const getAppliedJobs = async () => {

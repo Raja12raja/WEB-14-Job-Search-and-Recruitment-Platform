@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import {Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
@@ -44,7 +44,6 @@ function App() {
           <Route exact path="/Manage/:id" element={<Manage />} />
           <Route exact path="*" element={<Error404 />} />
           <Route path="/edit/:id" element={<EditJob />} />
-          {/* <Route path="/Completeprof" element={<Completeprofile/>}/> */}
         </Routes>
       </div>
       <Footer1 />
