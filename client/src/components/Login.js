@@ -27,7 +27,7 @@ const About = () => {
             INDIA’S #1 JOB PLATFORM
           </h1>
           <h2 className="text-6xl font-bold text-black mb-4">
-            Your job search ends here
+            Your job search ends here.
           </h2>
           <p className="text-xl font-bold text-black">
             Discover Variety of career opportunities!

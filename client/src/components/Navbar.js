@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
+import { useLocation } from 'react-router-dom';
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const userRole = localStorage.getItem('userRole');
   const { isAuthenticated, logout } = useAuth0();
+  const location = useLocation();
+
+  // Function to determine if a link is active
+  const isActive = (path) => location.pathname === path;
 
   return (
     <div className="bg-[#028391]">
@@ -32,8 +37,7 @@ export const Navbar = () => {
               <rect x="14" y="11" width="7" height="12" />
             </svg>
             <span className="ml-2 text-3xl font-bold tracking-wide text-[#222831]">
-            JobTreX
-
+              JobTreX
             </span>
           </a>
           <ul className="items-center hidden space-x-8 lg:flex">
@@ -42,7 +46,7 @@ export const Navbar = () => {
                 href="/"
                 aria-label="Home"
                 title="Home"
-                className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
+                className={`font-medium tracking-wide text-[#222831] transition-colors duration-200 px-3 py-2 rounded ${isActive('/') ? 'bg-[#393E46] text-white' : 'hover:text-white hover:bg-[#393E46]'}`}
               >
                 Home
               </a>
@@ -52,7 +56,7 @@ export const Navbar = () => {
                 href="/profile"
                 aria-label="Profile"
                 title="Profile"
-                className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
+                className={`font-medium tracking-wide text-[#222831] transition-colors duration-200 px-3 py-2 rounded ${isActive('/profile') ? 'bg-[#393E46] text-white' : 'hover:text-white hover:bg-[#393E46]'}`}
               >
                 Profile
               </a>
@@ -64,7 +68,7 @@ export const Navbar = () => {
                   href="/Dashboard"
                   aria-label="Dashboard"
                   title="Dashboard"
-                  className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
+                  className={`font-medium tracking-wide text-[#222831] transition-colors duration-200 px-3 py-2 rounded ${isActive('/Dashboard') ? 'bg-[#393E46] text-white' : 'hover:text-white hover:bg-[#393E46]'}`}
                 >
                   Dashboard
                 </a>
@@ -75,7 +79,7 @@ export const Navbar = () => {
                   href="/Dashboard2"
                   aria-label="Dashboard"
                   title="Dashboard"
-                  className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
+                  className={`font-medium tracking-wide text-[#222831] transition-colors duration-200 px-3 py-2 rounded ${isActive('/Dashboard2') ? 'bg-[#393E46] text-white' : 'hover:text-white hover:bg-[#393E46]'}`}
                 >
                   Dashboard
                 </a>
@@ -88,7 +92,7 @@ export const Navbar = () => {
                   href="/PostJob"
                   aria-label="PostJob"
                   title="PostJob"
-                  className="font-medium tracking-wide text-[#222831] transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
+                  className={`font-medium tracking-wide text-[#222831] transition-colors duration-200 px-3 py-2 rounded ${isActive('/PostJob') ? 'bg-[#393E46] text-white' : 'hover:text-white hover:bg-[#393E46]'}`}
                 >
                   PostJob
                 </a>
@@ -99,7 +103,7 @@ export const Navbar = () => {
             <li>
               <a
                 href="/login"
-                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#222831] transition duration-200 rounded shadow-md bg-[#EEEEEE] hover:bg-[#222831] hover:text-white focus:shadow-outline focus:outline-none"
+                className={`inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-[#222831] transition duration-200 rounded shadow-md bg-[#EEEEEE] hover:bg-[#222831] hover:text-white focus:shadow-outline focus:outline-none ${isActive('/login') ? 'bg-[#222831] text-white' : ''}`}
                 aria-label="Login"
                 title="Login"
               >
@@ -189,7 +193,7 @@ export const Navbar = () => {
                           href="/home"
                           aria-label="Home"
                           title="Home"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
+                          className={`font-medium tracking-wide text-gray-700 transition-colors duration-200 px-3 py-2 rounded ${isActive('/home') ? 'bg-[#393E46] text-white' : 'hover:text-white hover:bg-[#393E46]'}`}
                         >
                           Home
                         </a>
@@ -199,7 +203,7 @@ export const Navbar = () => {
                           href="/profile"
                           aria-label="Profile"
                           title="Profile"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
+                          className={`font-medium tracking-wide text-gray-700 transition-colors duration-200 px-3 py-2 rounded ${isActive('/profile') ? 'bg-[#393E46] text-white' : 'hover:text-white hover:bg-[#393E46]'}`}
                         >
                           Profile
                         </a>
@@ -209,7 +213,7 @@ export const Navbar = () => {
                           href="/Dashboard"
                           aria-label="Dashboard"
                           title="Dashboard"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
+                          className={`font-medium tracking-wide text-gray-700 transition-colors duration-200 px-3 py-2 rounded ${isActive('/Dashboard') ? 'bg-[#393E46] text-white' : 'hover:text-white hover:bg-[#393E46]'}`}
                         >
                           Dashboard
                         </a>
@@ -219,7 +223,7 @@ export const Navbar = () => {
                           href="/PostJob"
                           aria-label="PostJob"
                           title="PostJob"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-white hover:bg-[#393E46] px-3 py-2 rounded"
+                          className={`font-medium tracking-wide text-gray-700 transition-colors duration-200 px-3 py-2 rounded ${isActive('/PostJob') ? 'bg-[#393E46] text-white' : 'hover:text-white hover:bg-[#393E46]'}`}
                         >
                           PostJob
                         </a>
@@ -227,7 +231,7 @@ export const Navbar = () => {
                       <li>
                         <a
                           href="/login"
-                          className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-[#222831] transition duration-200 rounded shadow-md bg-[#393E46] hover:bg-[#222831] hover:text-white focus:shadow-outline focus:outline-none"
+                          className={`inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-[#222831] transition duration-200 rounded shadow-md bg-[#393E46] hover:bg-[#222831] hover:text-white focus:shadow-outline focus:outline-none ${isActive('/login') ? 'bg-[#222831] text-white' : ''}`}
                           aria-label="Login"
                           title="Login"
                         >
