@@ -81,7 +81,7 @@ const Home = () => {
           {/* <h1 className='text-5xl font-bold text-primary mb-3 text-center'><span className='text-[#41C9E2]'>Find Your</span> <span className='text-[#EEEEEE]'>Jobs</span> <span className='text-[#41C9E2]'>here</span></h1> */}
           <div class="text-5xl font-bold text-primary mb-3 text-center text-[#41C9E2]">
             Find Your{" "}
-            <span class="text-white inline-flex flex-col h-[calc(theme(fontSize.3xl)*theme(lineHeight.tight))] md:h-[calc(theme(fontSize.4xl)*theme(lineHeight.tight))] overflow-hidden">
+            <span class="text-white inline-flex flex-col h-[calc(theme(fontSize.5xl)*theme(lineHeight.tight))] md:h-[calc(theme(fontSize.5xl)*theme(lineHeight.tight))] overflow-hidden">
               <ul class="block animate-text-slide-4 text-left leading-tight [&_li]:block">
                 {/* <li>Candidate</li> */}
                 <li>Candidates</li>
