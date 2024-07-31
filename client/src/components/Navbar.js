@@ -199,14 +199,18 @@ export const Navbar = () => {
                         </a>
                       </li>
                       <li>
-                        <a
-                          href="/profile"
-                          aria-label="Profile"
-                          title="Profile"
-                          className={`font-medium tracking-wide text-gray-700 transition-colors duration-200 px-3 py-2 rounded ${isActive('/profile') ? 'bg-[#393E46] text-white' : 'hover:text-white hover:bg-[#393E46]'}`}
-                        >
-                          Profile
-                        </a>
+                        {userRole=='employer'?(<></>):(
+
+<a
+href="/profile"
+aria-label="Profile"
+title="Profile"
+className={`font-medium tracking-wide text-gray-700 transition-colors duration-200 px-3 py-2 rounded ${isActive('/profile') ? 'bg-[#393E46] text-white' : 'hover:text-white hover:bg-[#393E46]'}`}
+>
+Profile
+</a>
+                        )}
+                       
                       </li>
                       <li>
                         {userRole === 'employer' ? (
