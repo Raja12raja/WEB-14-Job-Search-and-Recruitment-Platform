@@ -45,7 +45,7 @@ const Cards = ({ query, selectedLocation, selectedRole, minSalary }) => {
 
     const renderCards = () => {
         return filteredItems.map((job, index) => (
-            <div key={index} className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 p-2 lg:p-3 mt-10">
+            <div key={index} className=" sm:w-1/2 md:w-1/2 lg:w-1/3 p-2 lg:p-3 mt-10">
                 <div className="w-80 overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl rounded-lg cursor-pointer bg-[#EEEEEE] mx-auto">
                     <a  className="w-full block h-full">
                         <div className="flex items-start p-4 bg-gradient-to-r from-[#00ADB5] to-[#EEEEEE]">

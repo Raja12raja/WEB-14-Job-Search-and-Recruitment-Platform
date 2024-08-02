@@ -42,3 +42,7 @@ It is a full-stack Job-Platform built with <a href="https://react.dev/" target="
 - <a href="https://github.com/2004prajapatirohit" target="_blank">Rohit Prajapati</a>
 - <a href="https://github.com/Chikoo285" target="_blank">Sahil Bharti</a>
 - <a href="https://github.com/rdj2005" target="_blank">Rao Dheeraj</a>
+
+## Hosting:
+- This website is hosted on Vercel <br />
+- <a href="https://jobtrex-job-search-and-recruitment-platform-frontend.vercel.app/" target="_blank">Visit</a>
