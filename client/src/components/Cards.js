@@ -2,10 +2,16 @@ import React, { useState, useEffect } from "react";
 import Axios from 'axios';
 import location from './images/location.png';
 import ReadMore from "./ReadMore";
+import { Navigate, useNavigate } from "react-router-dom"; // Import useNavigate
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const Cards = ({ query, selectedLocation, selectedRole, minSalary }) => {
+const userRole = localStorage.getItem('userRole');
+
+const Cards = ({ query, selectedLocation, selectedRole, minSalary, history }) => { // Inject history prop
     const [allJobs, setAllJobs] = useState([]);
-
+    // const [AppliedJobs, setAppliedJobs] = useState([]);
+    const navigate = useNavigate(); // Initialize useNavigate
     const formatDate = (deadline) => {
         const date = new Date(deadline);
         const day = date.getDate().toString().padStart(2, '0');
@@ -23,8 +29,18 @@ const Cards = ({ query, selectedLocation, selectedRole, minSalary }) => {
         }
     };
 
+    // const getAppliedJobs = async () => {
+    //     try {
+    //         const response = await Axios.get("http://localhost:5000/GetAppliedJobs");
+    //         setAppliedJobs(response.data.data3);
+    //     } catch (error) {
+    //         console.log("error", error);
+    //     }
+    // };
+
     useEffect(() => {
         getJobs();
+       
     }, []);
 
     const filteredItems = allJobs.filter(job => {
@@ -43,11 +59,30 @@ const Cards = ({ query, selectedLocation, selectedRole, minSalary }) => {
         );
     }
 
+    const onApply = (id) => {
+    
+        
+        if (userRole === "employer") {
+
+            {toast.warn('Please login as Candidate to apply', {
+                position: "top-right",
+                autoClose: 2000,
+                theme: "dark",
+            });}
+            
+        } else {
+            
+           
+                navigate(`/Apply/${id}`); 
+           
+        }
+    }
+
     const renderCards = () => {
         return filteredItems.map((job, index) => (
-            <div key={index} className=" sm:w-1/2 md:w-1/2 lg:w-1/3 p-2 lg:p-3 mt-10">
+            <div key={index} className="sm:w-1/2 md:w-1/2 lg:w-1/3 p-2 lg:p-3 mt-10">
                 <div className="w-80 overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl rounded-lg cursor-pointer bg-[#EEEEEE] mx-auto">
-                    <a  className="w-full block h-full">
+                    <a className="w-full block h-full">
                         <div className="flex items-start p-4 bg-gradient-to-r from-[#00ADB5] to-[#EEEEEE]">
                             <div className="w-16 h-16 object-cover">
                                 <img className="object-cover object-center w-full h-full rounded-lg" src={job.Logo} alt="Company Logo" />
@@ -73,9 +108,11 @@ const Cards = ({ query, selectedLocation, selectedRole, minSalary }) => {
                                 </div>
                             </div>
                             <div className="flex justify-between items-center py-3 border-b-2 text-xs text-white font-medium">
-                                <a href={`/Apply/${job._id}`} className="px-4 py-2 rounded-full bg-[#3C5B6F] hover:bg-[#393E46] flex m-auto ">
+                                <button
+                                    onClick={() => onApply(job._id)}
+                                    className="px-4 py-2 rounded-full bg-[#3C5B6F] hover:bg-[#393E46] flex m-auto">
                                     Apply now
-                                </a>
+                                </button>
                             </div>
                             <div className="flex items-center mt-4">
                                 <div className="px-3 bg-[#DDDDDD] rounded-full text-black font-medium text-center">
@@ -89,6 +126,7 @@ const Cards = ({ query, selectedLocation, selectedRole, minSalary }) => {
                         </div>
                     </a>
                 </div>
+                <ToastContainer />
             </div>
         ));
     };
@@ -100,4 +138,4 @@ const Cards = ({ query, selectedLocation, selectedRole, minSalary }) => {
     );
 };
 
-export default Cards;
+export default Cards; 
