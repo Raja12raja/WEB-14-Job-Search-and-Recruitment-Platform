@@ -122,7 +122,7 @@ const Create = () => {
             />
           </div>
           <div className="flex flex-col items-center">
-            <label className="mb-1 font-semibold text-gray-700">Minimum Salary</label>
+            <label className="mb-1 font-semibold text-gray-700">Minimum Salary (in $)</label>
             <input
               type="number"
               required
@@ -132,7 +132,7 @@ const Create = () => {
             />
           </div>
           <div className="flex flex-col items-center">
-            <label className="mb-1 font-semibold text-gray-700">Maximum Salary</label>
+            <label className="mb-1 font-semibold text-gray-700">Maximum Salary (in $)</label>
             <input
               type="number"
               required

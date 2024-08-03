@@ -98,7 +98,7 @@ const Cards = ({ query, selectedLocation, selectedRole, minSalary, history }) =>
                                     <label>Skills :</label> <span>{job.Skills}</span>
                                 </div>
                                 <div className="w-full text-gray-800 text-sm font-medium mb-2">
-                                    <label>Salary :</label> <span>{job.mSalary}k - {job.MSalary}k</span>
+                                    <label>Salary :</label> <span> $ {job.mSalary}  - $ {job.MSalary}</span>
                                 </div>
                                 <div className="w-full text-gray-800 text-sm font-medium mb-2">
                                     <label>Deadline :</label> <span>{formatDate(job.Deadline)}</span>

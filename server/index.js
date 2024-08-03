@@ -15,26 +15,6 @@ require('dotenv').config();
 const mongoURI = process.env.MONGO_URI;
 const port = process.env.PORT || 5000;
 
-// Ensure the uploads directory exists
-// const uploadDir = path.join(__dirname, 'uploads');
-// if (!fs.existsSync(uploadDir)) {
-//   fs.mkdirSync(uploadDir);
-// }
-
-// Multer setup
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, 'uploads/');
-//   },
-//   filename: function (req, file, cb) {
-//     // Generating unique file name
-//     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-//     cb(null, uniqueSuffix + path.extname(file.originalname));
-//   }
-// });
-
-// const upload = multer({ storage: storage });
-
 //connecting to Db
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
